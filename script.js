@@ -1,0 +1,283 @@
+const navbar = document.getElementById('navbar_wrapper');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                navbar.classList.add('scrolled');
+                console.log("yay");
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+
+        const aboutToggles = document.querySelectorAll(".researchDropdownToggle");
+
+        aboutToggles.forEach(toggle => {
+          toggle.addEventListener("click", () => {
+            console.log("yay");
+            const AboutDropdown = toggle.parentElement.querySelector(".researchDropdownContent");
+            const AboutPlus = toggle.querySelector(".plusSign");
+        
+            if (!AboutDropdown) return;
+        
+            // Close all other dropdowns and remove chevron rotation
+            aboutToggles.forEach(otherToggle => {
+              const otherAboutDropdown = otherToggle.parentElement.querySelector(".researchDropdownContent");
+              const otherAboutPlus = otherToggle.querySelector(".plusSign");
+        
+              if (otherAboutDropdown && otherAboutDropdown !== AboutDropdown) {
+                otherAboutDropdown.classList.remove("show");
+                otherAboutPlus?.classList.remove("rotate");
+                console.log("removed")
+              }
+            });
+        
+            // Toggle the clicked dropdown and chevron
+            AboutDropdown.classList.toggle("show");
+            AboutPlus.classList.toggle("rotate");
+          });
+        });
+
+
+
+        const toggles = document.querySelectorAll(".dropdowns");
+
+        toggles.forEach(toggle => {
+            toggle.addEventListener("click", () => {
+              const dropdown = toggle.parentElement.querySelector(".dropdown-content");
+              const chevron = toggle.querySelector("svg");
+          
+              if (!dropdown) return;
+          
+              // Close all other dropdowns and remove chevron rotation
+              toggles.forEach(otherToggle => {
+                const otherDropdown = otherToggle.parentElement.querySelector(".dropdown-content");
+                const otherChevron = otherToggle.querySelector("svg");
+          
+                if (otherDropdown && otherDropdown !== dropdown) {
+                  otherDropdown.classList.remove("show");
+                  otherChevron?.classList.remove("rotate");
+                }
+              });
+          
+              // Toggle the clicked dropdown and chevron
+              dropdown.classList.toggle("show");
+              chevron.classList.toggle("rotate");
+            });
+          });
+
+
+
+         const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".navLinks");
+
+function setActive(id) {
+  navLinks.forEach((link) => link.classList.remove("active"));
+  const linkEl = document.querySelector(`a[href="#${id}"]`);
+  if (linkEl && linkEl.parentElement) {
+    linkEl.parentElement.classList.add("active");
+  }
+}
+
+// IntersectionObserver for everything except bottom edge cases
+const observer = new IntersectionObserver(
+  (entries) => {
+    const visibleSections = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+    if (visibleSections.length > 0) {
+      const topSection = visibleSections[0];
+      const sectionId = topSection.target.getAttribute("id");
+      setActive(sectionId);
+    }
+  },
+  {
+    threshold: 0.1,
+    rootMargin: "-20% 0px -70% 0px",
+  }
+);
+
+sections.forEach((section) => observer.observe(section));
+
+// Manual scroll fallback for bottom + mentorship
+window.addEventListener("scroll", () => {
+  const contact = document.querySelector("#contact");
+  const mentorship = document.querySelector("#mentorship");
+
+  if (!contact || !mentorship) return;
+
+  const scrollPos = window.scrollY + window.innerHeight;
+  const docHeight = document.documentElement.scrollHeight;
+
+  if (Math.abs(scrollPos - docHeight) < 5) {
+    // At the bottom → Contact
+    setActive("contact");
+  } else if (window.scrollY >= mentorship.offsetTop) {
+    // Not at bottom but past mentorship → Mentorship
+    setActive("mentorship");
+  }
+});
+
+// Smooth scroll when clicking nav
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const targetID = this.getAttribute("href");
+    const target = document.querySelector(targetID);
+
+    if (target) {
+      const yOffset = -60; // sticky navbar height
+      const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
+});
+
+
+
+
+
+
+function setupCVDownload(id) {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0]; // e.g. 2025-07-05
+    const filename = `Aalok_Khandekar_CV_${formattedDate}.pdf`;
+
+    element.setAttribute('download', filename);
+
+    element.addEventListener('click', () => {
+        const link = document.createElement('a');
+        link.href = 'assets/Aalok_Khandekar_CV.pdf';
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+}
+
+// Set it up for both versions
+setupCVDownload('cv-download');
+setupCVDownload('mobileDownloadCV');
+
+
+function toggleReadMore(btn) {
+  // First close all other expanded sections
+  document.querySelectorAll(".researchDescription .more").forEach(el => {
+    el.style.display = "none";
+  });
+  document.querySelectorAll(".researchDescription .read-less-btn").forEach(el => {
+    el.style.display = "none";
+  });
+  document.querySelectorAll(".researchDescription .read-more-btn").forEach(el => {
+    el.style.display = "inline";
+  });
+  document.querySelectorAll(".researchDescription #dots").forEach(el => {
+    el.style.display = "inline";
+  });
+
+  // Then open the clicked one
+  const parent = btn.closest(".researchDescription");
+  const moreText = parent.querySelector(".more");
+  const readLessBtn = parent.querySelector(".read-less-btn");
+  const dots = parent.querySelector("#dots");
+
+  moreText.style.display = "inline";
+  readLessBtn.style.display = "inline";
+  btn.style.display = "none";
+  dots.style.display = "none";
+}
+
+function toggleReadLess(btn) {
+  const parent = btn.closest(".researchDescription");
+  const moreText = parent.querySelector(".more");
+  const readMoreBtn = parent.querySelector(".read-more-btn");
+  const dots = parent.querySelector("#dots");
+
+  moreText.style.display = "none";
+  readMoreBtn.style.display = "inline";
+  btn.style.display = "none";
+  dots.style.display = "inline";
+}
+
+
+
+(() => {
+  const tocEl = document.querySelector(".tableOfContents p");
+  const headings = Array.from(document.querySelectorAll(".mobileEducationTitle"));
+  const TOP_OFFSET = 10; // the line 10px from the top of the viewport
+
+  let positions = []; // [{ el, top }]
+  let currentText = "OVERVIEW";
+  let ticking = false;
+  let animTimeout = null; // 🔥 track the current animation timeout
+
+  function computePositions() {
+    positions = headings
+      .map(el => ({
+        el,
+        top: Math.floor(el.getBoundingClientRect().top + window.pageYOffset - TOP_OFFSET)
+      }))
+      .sort((a, b) => a.top - b.top);
+  }
+
+  function findActive(scrollY) {
+    let lo = 0, hi = positions.length - 1, idx = -1;
+    while (lo <= hi) {
+      const mid = (lo + hi) >> 1;
+      if (positions[mid].top <= scrollY) { idx = mid; lo = mid + 1; }
+      else { hi = mid - 1; }
+    }
+    return idx >= 0 ? positions[idx].el : null;
+  }
+
+  function setTOCText(newText) {
+    if (newText === currentText) return;
+
+    // cancel any pending animation
+    if (animTimeout) {
+      clearTimeout(animTimeout);
+      animTimeout = null;
+      tocEl.classList.remove("updating");
+    }
+
+    // trigger fade out
+    tocEl.classList.add("updating");
+
+    // swap text after fade out duration
+    animTimeout = setTimeout(() => {
+      tocEl.textContent = newText;
+      tocEl.classList.remove("updating");
+      currentText = newText;
+      animTimeout = null;
+    }, 50); // match CSS transition duration
+  }
+
+  function update() {
+    const activeEl = findActive(window.pageYOffset);
+    const nextText = activeEl ? activeEl.textContent.trim() : "OVERVIEW";
+    setTOCText(nextText);
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(() => { update(); ticking = false; });
+    }
+  }
+
+  // Init
+  tocEl.textContent = "OVERVIEW";
+  computePositions();
+  update();
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", () => { computePositions(); update(); });
+  window.addEventListener("load", () => { computePositions(); update(); });
+
+  const bodyRO = new ResizeObserver(() => { computePositions(); update(); });
+  bodyRO.observe(document.body);
+})();
