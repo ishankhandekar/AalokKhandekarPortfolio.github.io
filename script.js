@@ -281,3 +281,64 @@ function toggleReadLess(btn) {
   const bodyRO = new ResizeObserver(() => { computePositions(); update(); });
   bodyRO.observe(document.body);
 })();
+
+
+
+(function () {
+  const fade = document.querySelector('.SeamlessBottom');
+  const sentinel = document.getElementById('bottom-sentinel');
+  const html = document.documentElement;
+
+  if (!fade || !sentinel) return;
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const atBottom = entry.isIntersecting;
+        fade.classList.toggle('hidden', atBottom);
+        html.classList.toggle('at-bottom', atBottom); // 👈 toggle bg color
+      });
+    }, { root: null, threshold: 0 });
+    io.observe(sentinel);
+
+  } else {
+    const check = () => {
+      const atBottom = (window.innerHeight + window.pageYOffset) >= (document.documentElement.scrollHeight - 2);
+      fade.classList.toggle('hidden', atBottom);
+      body.classList.toggle('at-bottom', atBottom); // 👈 toggle bg color
+    };
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check);
+    check();
+  }
+})();
+
+const faders = [...document.querySelectorAll('[class*="fade"]')]
+  .filter(el => [...el.classList].some(c => c.startsWith("fade")));
+
+const observer3 = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const el = entry.target;
+    const retrigger = el.dataset.retrigger === "true"; // 👈 control retrigger
+
+    if (entry.isIntersecting) {
+      // delay support
+      const delay = el.dataset.delay ? parseInt(el.dataset.delay) : 0;
+      setTimeout(() => {
+        el.classList.add('visible');
+      }, delay);
+      
+      // if not retrigger, stop observing after first time
+      if (!retrigger) observer3.unobserve(el);
+    } else if (retrigger) {
+      // remove if allowed to retrigger
+      el.classList.remove('visible');
+    }
+  });
+}, {
+  threshold: 0.1
+});
+
+faders.forEach(fader => observer3.observe(fader));
+
+
