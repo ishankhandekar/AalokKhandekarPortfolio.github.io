@@ -71,6 +71,60 @@
   font-style: normal;
   font-display: swap;
 }
+/* Base hidden state */
+.fade {
+  
+}
+
+/* Fade up */
+.fade-up {
+  opacity: 0;
+  transition: all 0.6s ease;
+  will-change: opacity, transform;
+  transform: translateY(30px);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade left */
+.fade-left {
+  opacity: 0;
+  transition: all 0.6s ease;
+  will-change: opacity, transform;
+  transform: translateX(-30px);
+}
+.fade-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fade right */
+.fade-right {
+  opacity: 0;
+  transition: all 0.6s ease;
+  will-change: opacity, transform;
+  transform: translateX(30px);
+}
+.fade-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fade zoom */
+.fade-zoom {
+  opacity: 0;
+  transition: all 0.6s ease;
+  will-change: opacity, transform;
+  transform: scale(0.9);
+}
+.fade-zoom.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
 a, button {
   -webkit-tap-highlight-color: transparent;
    user-select: none;
@@ -79,8 +133,23 @@ a, button {
 html{
   scroll-behavior: smooth;
 }
-body{
+html, body{
   overflow-x: hidden;
+  background-color: #232532;
+  min-height: 100%;
+  transition: background-color 0.4s ease;
+}
+html.at-bottom,
+body {
+  background-color: #2A2D3A;
+  transition: background-color 0.3s ease;
+}
+
+body {
+  padding-bottom:
+env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 main{
 flex: 1; /* Pushes content to fill remaining space */
@@ -229,7 +298,7 @@ header{
   margin-right: 30px;
 }
 .tableOfContents p{
-  font-family: sora;
+  font-family: Dm sans;
   letter-spacing: 0.1em;
   font-weight: 500;
   font-size: 0.8rem;
@@ -336,7 +405,9 @@ background: linear-gradient(to right, #292E49, #536976); /* W3C, IE 10+/ Edge, F
   margin-top: 0;
 }
 #desktopHeading{
-  display: block
+  display: block;
+  font-family: inter;
+  font-weight: 600;
 }
 #mobileHeading{
   display: none;
@@ -559,17 +630,75 @@ object-fit: cover;
     box-sizing: border-box;
   }
 }
+@media (max-width: 3000px){
+  #desktopHeading{
+    font-size: 7rem;
+    margin-bottom: 0;
+  }
+  .heroText h2{
+    font-size: 2.1rem;
+    margin-top: -10px;
+    margin-left: 4px;
+    font-family: "nunito sans";
+  }
+  .heroButtons a{
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 2000px){
+  #desktopHeading{
+    font-size: 5rem;
+    margin-bottom: 0;
+  }
+  .heroText h2{
+    font-size: 1.7rem;
+    margin-top: -10px;
+    margin-left: 4px;
+    font-family: "nunito sans";
+  }
+  .heroButtons a{
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 1750px){
+  #desktopHeading{
+    font-size: 4rem;
+    margin-bottom: 0;
+  }
+  .heroButtons a{
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 1600px){
+  #desktopHeading{
+    font-size: 3rem;
+  }
+  .heroText h2{
+    font-size: 1.35rem;
+    font-family: "nunito sans";
+    margin-left: 0;
+    margin-top: -4px;
+  }
+  .heroButtons a{
+    font-size: 1rem;
+  }
+}
 @media (max-width: 1200px) {
   .mobileHeroButtons {
     padding-left: 3rem !important;
     padding-right: 60vw !important;
+    
+  }
+  .heroText h2{
+    display: none;
   }
 }
-
 @media (max-width: 950px) {
   .mobileHeroButtons {
-    padding-left: 2.5rem !important;
     padding-right: 50vw !important;
+    padding-left: 2.5rem !important;
+    
+    
   }
 }
 @media (max-width: 800px) {
@@ -598,6 +727,8 @@ object-fit: cover;
     padding-right: 2rem !important;
   }
 }
+
+
 
 /*about*/
 
@@ -768,13 +899,33 @@ margin: 0.2rem 0.2rem;
     display: none;
   }
 }
+@media (max-width: 2000px){
+  .right-column, 
+  .left-column{
+    padding: 4rem;
+  }
+  
+  
+}
+@media (max-width: 1750px){
+  .right-column, 
+  .left-column{
+    padding: 3rem;
+  }
+}
+@media (max-width: 1600px){
+  .right-column, 
+  .left-column{
+    padding: 2rem;
+  }
+}
 
 
 
 .mobileEducationTitle{
   color: white;
   
-  font-family: sora;
+  font-family: dm sans;
   letter-spacing: 0.1em;
   font-weight: 500;
   font-size: 0.8rem;
@@ -806,10 +957,19 @@ margin: 0.2rem 0.2rem;
   margin: 1.5rem;
   
 }
+.fullCardMeta{
+  display: flex;
+  float: right;
+
+}
 .pub-meta{
   display: block;
   display: flex;
   flex-direction: column;
+}
+.icon-meta{
+  margin-right: 4px;
+  color: rgba(255,255,255,1);
 }
 .pub-card{
   background: #1c1e2b;
@@ -971,7 +1131,7 @@ margin: 0.2rem 0.2rem;
   margin-bottom: 20px;
 }
 .mentorshipDescription{
-  font-family: montserrat;
+  font-family: barlow condensed;
   color: rgba(255,255,255,0.5);
   padding-left: 1.5rem;
 }
@@ -999,8 +1159,8 @@ margin: 0.2rem 0.2rem;
   float: right;
   color: white;
   font-family: barlow condensed;
-  font-weight: 600;
-  
+  font-weight: 500;
+  font-size: 0.8rem;
 }
 .courseCard h3{
   font-family: montserrat;
@@ -1013,6 +1173,7 @@ margin: 0.2rem 0.2rem;
   font-family: montserrat;
   color: rgba(255,255,255,0.5);
   font-size: 0.9rem;
+  
 }
 .courseCard .tag{
   color: white;
@@ -1020,6 +1181,7 @@ margin: 0.2rem 0.2rem;
   font-weight: 400;
   font-size: 0.8rem;
   margin-right: 20px;
+  padding-top: 1rem;
   background: rgba(255,255,255,0.2);
   padding: 1px 3px;
   border-radius: 5px;
@@ -1290,6 +1452,26 @@ justify-content: space-between;
   }
   
 }
+.SeamlessBottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px; /* how tall the fade is */
+  background: linear-gradient(to bottom, rgba(35, 37, 50, 0), #232532);
+  pointer-events: none; /* don't block clicks */
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+.SeamlessBottom.hidden {
+  opacity: 0;
+}
+#bottom-sentinel{
+  /* tiny, harmless element at the end of the document */
+  width: 1px;
+  height: 1px;
+}
+
 
 
 
