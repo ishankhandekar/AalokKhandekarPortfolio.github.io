@@ -1472,6 +1472,439 @@ justify-content: space-between;
   height: 1px;
 }
 
+/* ============================================================
+   Desktop typographic hero — applies ONLY above 1200px.
+   The mobile/stacked hero (<=1200px) is intentionally untouched.
+   New hero elements default to display:none so they never
+   appear in the mobile layout.
+   ============================================================ */
+.heroKicker,
+.heroRail,
+.heroWatermark{
+  display: none;
+}
+
+@media (min-width: 1201px){
+  .heroSection{
+    position: relative;
+    overflow: hidden;                 /* clip watermark to rounded corners */
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(40px, 6vw, 110px);
+    padding: 0 clamp(48px, 6vw, 92px);
+    background: radial-gradient(1000px 720px at 82% 60%, rgba(90,110,170,.09), transparent 62%),
+                linear-gradient(120deg, #23262f 0%, #2a2e3d 60%, #30354a 100%);
+  }
+
+  /* ---- left main type block ---- */
+  .heroText{
+    width: auto;
+    max-width: 60ch;
+    flex: 1 1 auto;
+    height: auto;
+    margin-left: 0;
+    position: relative;
+    z-index: 2;
+  }
+  .heroText hr{ display: none; }
+  .heroText h2{ display: none; }        /* role now lives in the rail */
+
+  .heroKicker{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: montserrat;
+    text-transform: uppercase;
+    letter-spacing: .22em;
+    font-size: .72rem;
+    font-weight: 600;
+    color: #9297aa;
+    margin-bottom: 30px;
+  }
+  .heroKicker::before{
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: #fec157;
+    display: inline-block;
+  }
+
+  #desktopHeading{
+    font-family: montserrat;
+    font-size: clamp(2.6rem, 4.4vw, 4.2rem);
+    line-height: 1.02;
+    letter-spacing: -.015em;
+    color: #f2f3f8;
+    margin-bottom: 26px;
+  }
+  .heroText p{
+    font-size: clamp(1.1rem, 1.7vw, 1.55rem);
+    line-height: 1.5;
+    font-weight: 400;
+    color: #d4d7e2;
+    max-width: 24ch;
+    margin: 0 0 36px 0;
+  }
+  .heroButtons a{ color: #fec157; }
+
+  /* ---- right info rail ---- */
+  .heroHeadshot{ display: none; }        /* big portrait removed on desktop */
+
+  .heroRail{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    flex: 0 0 auto;
+    width: clamp(220px, 22vw, 300px);
+    border-left: 1px solid rgba(255,255,255,.12);
+    padding-left: clamp(28px, 2.6vw, 44px);
+    position: relative;
+    z-index: 2;
+  }
+  .railAvatar{
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: grayscale(1);
+    border: 1px solid rgba(255,255,255,.14);
+    opacity: .9;
+  }
+  .railItem .railLabel{
+    font-family: montserrat;
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    font-size: .66rem;
+    font-weight: 600;
+    color: #9297aa;
+    margin-bottom: 8px;
+  }
+  .railItem .railValue{
+    font-family: montserrat;
+    font-size: .98rem;
+    font-weight: 500;
+    color: #dfe1ea;
+    line-height: 1.45;
+  }
+  .railTags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .railTags span{
+    font-family: montserrat;
+    font-size: .8rem;
+    color: #c9ccda;
+    border: 1px solid rgba(255,255,255,.12);
+    padding: 5px 11px;
+    border-radius: 999px;
+  }
+
+  /* ---- faint typographic watermark ---- */
+  .heroWatermark{
+    display: block;
+    position: absolute;
+    right: -2vw;
+    bottom: -12vh;
+    z-index: 0;
+    font-family: montserrat;
+    font-weight: 700;
+    font-size: 34vw;
+    line-height: .8;
+    letter-spacing: -.04em;
+    color: rgba(255,255,255,.022);
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+/* ============================================================
+   Mentorship — Teaching History & Notable Students (desktop only;
+   #mentorship is display:none below 1200px, so these are safe).
+   Refreshed to match the typographic hero: two columns, bordered
+   pill tags, accent chips, subtle card lift.
+   ============================================================ */
+.flexContainerMentorship{
+  display: flex;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: flex-start;
+  padding: clamp(2.5rem, 4vw, 4rem) clamp(2rem, 6vw, 5.75rem) 2.5rem;
+}
+.courses-col{ flex: 1.35; min-width: 0; }
+.students-col{ flex: 1; min-width: 0; }
+
+.mentorColTitle{
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  font-family: montserrat;
+  font-weight: 700;
+  color: #fff;
+  font-size: 1.7rem;
+  margin: .5rem 0 1.3rem .75rem;
+}
+.mentorColTitle::before{
+  content: "";
+  width: 22px;
+  height: 3px;
+  border-radius: 2px;
+  background: #fec157;
+  display: inline-block;
+}
+
+/* ---- course cards ---- */
+.courseCard{
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 1.4rem 1.5rem;
+  margin: 0 0.75rem 1rem;
+  position: relative;
+  transition: transform .3s ease, border-color .3s ease, box-shadow .4s ease;
+}
+.courseCard:hover{
+  transform: translateY(-3px);
+  border-color: rgba(254,193,87,.35);
+  box-shadow: 0 14px 34px rgba(0,0,0,.35);
+}
+.courseCard .fullCardMeta{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .7rem;
+}
+.courseCard .icon-meta{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(254,193,87,.12);
+  color: #fec157;
+  margin-top: 0 !important;
+}
+.courseCard small{
+  float: none;
+  color: rgba(255,255,255,.55);
+  font-family: 'barlow condensed', sans-serif;
+  font-weight: 500;
+  font-size: .85rem;
+  letter-spacing: .02em;
+}
+.courseCard h3{
+  font-family: montserrat;
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: .1rem 0 .45rem;
+}
+.courseCard p{
+  font-family: montserrat;
+  color: rgba(255,255,255,.55);
+  font-size: .9rem;
+  line-height: 1.55;
+  margin: 0 0 1rem;
+}
+.courseCard .metadata{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.courseCard .tag{
+  color: #c9ccda;
+  font-family: montserrat;
+  font-weight: 500;
+  font-size: .72rem;
+  letter-spacing: .02em;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.14);
+  padding: 4px 11px;
+  border-radius: 999px;
+  margin: 0;
+}
+
+/* ---- student cards ---- */
+.featured-student-card{
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 1.4rem 1.5rem;
+  margin: 0 0.75rem 1rem;
+  transition: transform .3s ease, border-color .3s ease, box-shadow .4s ease;
+}
+.featured-student-card:hover{
+  transform: translateY(-3px);
+  border-color: rgba(254,193,87,.35);
+  box-shadow: 0 14px 34px rgba(0,0,0,.35);
+}
+.featured-student-card .student-role{
+  display: block;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-family: montserrat;
+  font-weight: 600;
+  font-size: .66rem;
+  color: #fec157;
+  margin-bottom: .35rem;
+}
+.featured-student-card .student-name{
+  font-family: montserrat;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: .1rem 0 .6rem;
+}
+.featured-student-card .student-contribution{
+  color: rgba(255,255,255,.6);
+  font-family: montserrat;
+  font-size: .88rem !important;
+  line-height: 1.55;
+  margin-bottom: .7rem;
+}
+.featured-student-card .student-contribution strong{
+  color: #e7e9f2;
+  font-weight: 600;
+}
+.featured-student-card .student-status{
+  background: rgba(254,193,87,.12);
+  color: #fec157;
+  border-radius: 999px;
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: .78rem;
+  font-family: montserrat;
+}
+
+/* ---- Teaching History timeline ---- */
+.timeline{ position: relative; padding-left: 30px; }
+.timeline::before{
+  content: "";
+  position: absolute;
+  left: 5px; top: 10px; bottom: 10px;
+  width: 2px;
+  background: linear-gradient(rgba(255,255,255,.16), rgba(255,255,255,.04));
+}
+.tl-item{ position: relative; padding-bottom: 32px; }
+.tl-item:last-child{ padding-bottom: 0; }
+.tl-item::before{
+  content: "";
+  position: absolute;
+  left: -29.5px; top: 6px;
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  background: #fec157;
+  border: 3px solid #2A2D3A;
+  box-shadow: 0 0 0 1px rgba(254,193,87,.35);
+  z-index: 2;
+}
+.tl-head{
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.tl-year{
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  color: #fec157;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+.tl-format{
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: .72rem;
+  color: rgba(255,255,255,.55);
+}
+.tl-content h3{
+  font-family: montserrat;
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 .4rem;
+}
+.tl-content p{
+  font-family: montserrat;
+  font-size: .9rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,.55);
+  margin: 0 0 .8rem;
+  max-width: 44ch;
+}
+.tl-tags{ display: flex; flex-wrap: wrap; gap: 8px; }
+.tl-tags span{
+  font-family: montserrat;
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+  color: #c9ccda;
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 4px 11px;
+  border-radius: 999px;
+}
+.tl-content{ transition: transform .25s ease; }
+.tl-item:hover .tl-content{ transform: translateX(3px); }
+
+/* ---- Notable Students compact list ---- */
+.student-list{ border-top: 1px solid rgba(255,255,255,.12); }
+.sl-item{
+  display: flex;
+  gap: 16px;
+  padding: 18px 6px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px;
+  transition: background .25s ease, padding-left .25s ease;
+}
+.sl-item:hover{ background: rgba(255,255,255,.03); padding-left: 12px; }
+.sl-avatar{
+  width: 46px; height: 46px;
+  flex: none;
+  border-radius: 50%;
+  background: rgba(254,193,87,.14);
+  color: #fec157;
+  border: 1px solid rgba(254,193,87,.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: montserrat;
+  font-weight: 600;
+  font-size: .95rem;
+}
+.sl-role{
+  font-family: montserrat;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .62rem;
+  font-weight: 600;
+  color: #fec157;
+  margin-bottom: 3px;
+}
+.sl-name{
+  font-family: montserrat;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 5px;
+}
+.sl-contribution{
+  font-family: montserrat;
+  font-size: .85rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,.55);
+}
+.sl-status{
+  display: inline-block;
+  margin-top: 7px;
+  font-family: montserrat;
+  font-size: .74rem;
+  color: rgba(254,193,87,.9);
+}
+
 
 
 

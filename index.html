@@ -110,6 +110,7 @@
                 <div class="heroText">
 
 
+                    <div class="heroKicker">Science, Technology &amp; Society</div>
                     <h1 id="desktopHeading" class="fade-up">Dr. Aalok Khandekar</h1>
                     <h1 id="mobileHeading" ><span style="color: #ffc25d;">Dr.</span> Aalok Khandekar</h1>
                     <hr>
@@ -155,6 +156,28 @@
                         </a>
                     </div>
                 </div>
+                <aside class="heroRail">
+                    <img class="railAvatar" src="images/AalokKhandekarHeadshotSquare-photoaidcom-greyscale - Copy.png"
+                        alt="Dr. Aalok Khandekar">
+                    <div class="railItem">
+                        <div class="railLabel">Role</div>
+                        <div class="railValue" id="railRole">Associate Professor,<br>Dept. of Liberal Arts</div>
+                    </div>
+                    <div class="railItem">
+                        <div class="railLabel">Based in</div>
+                        <div class="railValue" id="railBased">IIT Hyderabad, India</div>
+                    </div>
+                    <div class="railItem">
+                        <div class="railLabel">Focus</div>
+                        <div class="railTags" id="railFocus">
+                            <span>Urban governance</span>
+                            <span>Climate adaptation</span>
+                            <span>STS</span>
+                            <span>Infrastructure</span>
+                        </div>
+                    </div>
+                </aside>
+                <div class="heroWatermark" aria-hidden="true">AK</div>
                 <div class="heroHeadshot">
                     <img src="images/AalokKhandekarHeadshotSquare-Photoroom.png"
                         alt="Headshot of Professor Aalok Khandekar" width="420" height="auto">
@@ -710,11 +733,10 @@
 
 
         <section id="mentorship">
-            <h1>Teaching History</h1>
-            <!-- <p class="mentorshipDescription">From classroom lectures to collaborative projects, this section highlights past courses and students who’ve worked closely with Prof. Khandekar.</p> -->
             <div class="flexContainerMentorship">
-
-                <div class="courses" id="courseList">
+                <div class="courses-col">
+                    <h2 class="mentorColTitle">Teaching History</h2>
+                    <div class="courses timeline" id="courseList">
                     <div class="courseCard">
                         <div class="fullCardMeta">
                         <div class="icon-meta">
@@ -773,89 +795,12 @@
                         </div>
                     </div>
 
+                    </div>
                 </div>
-                <div class="students">
-                    <h1>Notable Students</h1>
-                    <div class="featured-student-card">
-                        <div class="student-info">
-                            <small class="student-role">B.Tech Student, Liberal Arts</small>
-                            <h3 class="student-name">Ananya Rajan</h3>
-
-                            <p class="student-contribution">
-                                <strong>Student Contributions:</strong> Assisted in field research on water access
-                                inequality in semi-urban Telangana, focusing
-                                on
-                                STS approaches to infrastructure.
-                            </p>
-                            <p class="student-status">
-                                Now interning at the Centre for Science and Environment, New Delhi.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="featured-student-card">
-                        <div class="student-info">
-                            <small class="student-role">B.Tech Student, Liberal Arts</small>
-                            <h3 class="student-name">Ananya Rajan</h3>
-
-                            <p class="student-contribution">
-                                <strong>Student Contributions:</strong> Assisted in field research on water access
-                                inequality in semi-urban Telangana, focusing
-                                on
-                                STS approaches to infrastructure.
-                            </p>
-                            <p class="student-status">
-                                Now interning at the Centre for Science and Environment, New Delhi.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="featured-student-card">
-                        <div class="student-info">
-                            <small class="student-role">B.Tech Student, Liberal Arts</small>
-                            <h3 class="student-name">Ananya Rajan</h3>
-
-                            <p class="student-contribution">
-                                <strong>Student Contributions:</strong> Assisted in field research on water access
-                                inequality in semi-urban Telangana, focusing
-                                on
-                                STS approaches to infrastructure.
-                            </p>
-                            <p class="student-status">
-                                Now interning at the Centre for Science and Environment, New Delhi.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="featured-student-card">
-                        <div class="student-info">
-                            <small class="student-role">B.Tech Student, Liberal Arts</small>
-                            <h3 class="student-name">Ananya Rajan</h3>
-
-                            <p class="student-contribution">
-                                <strong>Student Contributions:</strong> Assisted in field research on water access
-                                inequality in semi-urban Telangana, focusing
-                                on
-                                STS approaches to infrastructure.
-                            </p>
-                            <p class="student-status">
-                                Now interning at the Centre for Science and Environment, New Delhi.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="featured-student-card">
-                        <div class="student-info">
-                            <small class="student-role">B.Tech Student, Liberal Arts</small>
-                            <h3 class="student-name">Ananya Rajan</h3>
-
-                            <p class="student-contribution">
-                                <strong>Student Contributions:</strong> Assisted in field research on water access
-                                inequality in semi-urban Telangana, focusing
-                                on
-                                STS approaches to infrastructure.
-                            </p>
-                            <p class="student-status">
-                                Now interning at the Centre for Science and Environment, New Delhi.
-                            </p>
-                        </div>
-                    </div>
+                <div class="students-col">
+                    <h2 class="mentorColTitle">Notable Students</h2>
+                    <!-- Populated from notableStudents in data.js by render.js -->
+                    <div class="student-list" id="studentList"></div>
                 </div>
             </div>
         </section>
@@ -1031,7 +976,7 @@
                 <div style="width: 34vw;">
 
                     <h3>Office</h3>
-                    <p>Room 207,<br> Liberal Arts (AD3) Building<br><br> +91 (0)40 2301 6XXX</p>
+                    <p class="js-office">Room 207,<br> Liberal Arts (AD3) Building<br><br> +91 (0)40 2301 6XXX</p>
                 </div>
                 <div >
 
@@ -1047,7 +992,7 @@
             <div style="width: 34vw;">
 
                 <h3>Affiliations</h3>
-                <p><a class="changeColorOnHover" href="https://cc.iith.ac.in/" target="_blank" rel="noopener noreferrer"
+                <p class="js-affiliations"><a class="changeColorOnHover" href="https://cc.iith.ac.in/" target="_blank" rel="noopener noreferrer"
                         style="margin-bottom: 0; margin-top: 0;">Dept. of Climate
                         Change</a><a class="changeColorOnHover" style="margin-top: 0; margin-bottom: 0;" target="_blank"
                         rel="noopener noreferrer" href="https://gss.iith.ac.in/">Greenko School of
@@ -1079,13 +1024,13 @@
                 <div>
 
                     <h3>Office</h3>
-                    <p>Room 207,<br> Liberal Arts (AD3) Building<br><br> +91 (0)40 2301 6XXX</p>
+                    <p class="js-office">Room 207,<br> Liberal Arts (AD3) Building<br><br> +91 (0)40 2301 6XXX</p>
                 </div>
 
                 <div>
 
                     <h3>Affiliations</h3>
-                    <p><a class="changeColorOnHover" href="https://cc.iith.ac.in/" target="_blank"
+                    <p class="js-affiliations"><a class="changeColorOnHover" href="https://cc.iith.ac.in/" target="_blank"
                             rel="noopener noreferrer" style="margin-bottom: 0; margin-top: 0;">Department of Climate
                             Change</a><a class="changeColorOnHover" style="margin-top: 0; margin-bottom: 0;"
                             target="_blank" rel="noopener noreferrer" href="https://gss.iith.ac.in/">Greenko School of
