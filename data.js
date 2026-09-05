@@ -147,6 +147,38 @@ export const projects = [
     title: "Collaborative Platforms for Comparative STS Research",
     pdf: "#",
     doi: "#"
+  },
+  {
+    venue: "Environmental Science & Policy",
+    location: "Journal Article",
+    date: "2023",
+    title: "Governing Heat: Municipal Responses to Urban Warming in India",
+    pdf: "#",
+    doi: "#"
+  },
+  {
+    venue: "Social Studies of Science",
+    location: "Journal Article",
+    date: "2021",
+    title: "Expertise & Accountability in Air-Quality Monitoring",
+    pdf: "#",
+    doi: "#"
+  },
+  {
+    venue: "EASST Conference",
+    location: "Amsterdam, Netherlands",
+    date: "2022",
+    title: "Comparative Infrastructures of Urban Climate Data",
+    pdf: "#",
+    doi: "#"
+  },
+  {
+    venue: "Urban Studies",
+    location: "Journal Article",
+    date: "2019",
+    title: "Participatory Planning & the Politics of Sustainable Cities",
+    pdf: "#",
+    doi: "#"
   }
 ];
 

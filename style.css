@@ -882,7 +882,7 @@ margin: 0.2rem 0.2rem;
   font-size: 0.9rem;
   font-family: montserrat;
   color: #7c7d8b;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .right-column hr{
@@ -1947,7 +1947,7 @@ justify-content: space-between;
 }
 .researchDropdownToggle:hover{ padding-left: 14px; background: rgba(255,255,255,.03); }
 .right-column .pill-text{
-  font-size: .98rem; font-weight: 600; color: #9297aa;
+  font-size: .98rem; font-weight: 500; color: #9297aa;
   transition: color .3s ease;
 }
 .researchDropdownToggle:hover .pill-text,
