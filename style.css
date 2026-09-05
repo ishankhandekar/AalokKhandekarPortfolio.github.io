@@ -533,7 +533,7 @@ object-fit: cover;
     display: none;
   }
   #mobileHeading{
-    font-size: 3.8rem;
+    font-size: clamp(2.5rem, 11vw, 3.8rem);
     display: block;
     font-family: montserrat;
     padding-bottom: 0.1rem;
@@ -2011,6 +2011,16 @@ justify-content: space-between;
 @media(max-width: 1200px){
   /* the scroll-spy OVERVIEW label is replaced by the hamburger */
   .tableOfContents{ display: none !important; }
+
+  /* Pin the fixed navbar to the full viewport so the hamburger can't be
+     pushed off the right edge as the window narrows. */
+  header{ padding: 0; }
+  .navbar{
+    left: 0; right: 0;
+    width: 100% !important; max-width: 100%;
+    margin: 0; padding: 0 18px;
+    box-sizing: border-box;
+  }
 
   /* ---- hamburger + fullscreen menu ---- */
   .menuToggle{
