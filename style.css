@@ -2024,15 +2024,20 @@ justify-content: space-between;
 
   /* ---- hamburger + fullscreen menu ---- */
   .menuToggle{
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
-    width: 40px; height: 40px; border: none; background: none; cursor: pointer;
-    z-index: 10001; margin-left: auto; margin-right: 2px; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px; border: none; background: none; cursor: pointer;
+    z-index: 10001; margin-left: auto; margin-right: 2px; flex: none; padding: 0;
   }
-  .menuToggle span{ display:block; height:2px; width:22px; border-radius:2px; background:#f2f3f8;
-    transition: transform .4s cubic-bezier(.6,.05,.2,1), opacity .25s ease; }
-  body.menu-open .menuToggle span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
-  body.menu-open .menuToggle span:nth-child(2){ opacity:0; transform: translateX(-8px); }
-  body.menu-open .menuToggle span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+  .hamburger{ width: 28px; height: 24px; overflow: visible; }
+  .hamburger line{
+    stroke: #f2f3f8; stroke-width: 2.4; stroke-linecap: round;
+    transform-box: fill-box; transform-origin: center;
+    transition: transform .4s cubic-bezier(.6,.05,.2,1), opacity .3s ease, stroke .3s ease;
+  }
+  .hamburger .h-mid{ stroke: #fec157; }         /* gold accent bar */
+  body.menu-open .hamburger .h-top{ transform: translateY(7px) rotate(45deg); }
+  body.menu-open .hamburger .h-mid{ opacity: 0; transform: scaleX(0); }
+  body.menu-open .hamburger .h-bot{ transform: translateY(-7px) rotate(-45deg); }
 
   .mobileMenu{
     position: fixed; inset: 0; z-index: 10000; background:#15161e;
