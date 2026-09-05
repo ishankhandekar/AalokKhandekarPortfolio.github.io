@@ -118,8 +118,8 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
   // Desktop: a mini-timeline (mirrors the Teaching History timeline)
   const tl = document.getElementById('eduTimeline');
   if (tl) {
-    tl.innerHTML = education.map(e => `
-      <div class="tl-item">
+    tl.innerHTML = education.map((e, i) => `
+      <div class="tl-item fade-up" data-delay="${i * 70}">
         <div class="tl-content">
           <div class="tl-head">
             <span class="tl-year">${e.year}</span>
@@ -133,8 +133,8 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
   // Mobile: a light hairline list with gold years
   const grid = gridByMobileTitle('EDUCATION');
   if (grid) {
-    grid.innerHTML = `<div class="m-edu">` + education.map(e => `
-      <div class="m-edu-row">
+    grid.innerHTML = `<div class="m-edu">` + education.map((e, i) => `
+      <div class="m-edu-row fade-up" data-delay="${i * 60}">
         <span class="m-edu-yr">&rsquo;${String(e.year).slice(2)}</span>
         <div>
           <div class="m-edu-deg">${e.credential} <span>${e.field}</span></div>
@@ -175,8 +175,8 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
   // Mobile: quiet expandable rows (tap to open)
   const grid = gridByMobileTitle('RESEARCH');
   if (grid) {
-    grid.innerHTML = topicsOfResearch.map(t => `
-      <div class="m-rrow">
+    grid.innerHTML = topicsOfResearch.map((t, i) => `
+      <div class="m-rrow fade-up" data-delay="${i * 55}">
         <button class="m-rrow-h" onclick="mRes(this)">
           <span>${t.title}</span>
           <svg class="m-plus" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
@@ -194,9 +194,10 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
   const container = document.getElementById("project-cards");
   if (!container) return;
   container.innerHTML = "";
-  projects.forEach(project => {
+  projects.forEach((project, i) => {
     const card = document.createElement("div");
-    card.className = "pub-card";
+    card.className = "pub-card fade-up";
+    card.dataset.delay = i * 70;
     card.innerHTML = `
       <div class="pub-meta">
         <small class="venue">${project.venue}</small>
@@ -221,7 +222,7 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
   const timeline = document.getElementById("courseList");
   if (timeline) {
     timeline.innerHTML = "";
-    coursesTaught.forEach(course => {
+    coursesTaught.forEach((course, i) => {
       const meta = course.metaDataOne || "";
       const year = (meta.match(/\b\d{4}\b/) || [""])[0];
       const format = meta
@@ -232,7 +233,8 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
         .trim();
 
       const item = document.createElement("div");
-      item.className = "tl-item";
+      item.className = "tl-item fade-up";
+      item.dataset.delay = i * 70;
       item.innerHTML = `
         <div class="tl-content">
           <div class="tl-head">
@@ -255,8 +257,8 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
   // Mobile: compact tag cards
   const mobile = document.querySelector(".mobileCourses");
   if (mobile) {
-    mobile.innerHTML = coursesTaught.map(course => `
-      <div class="m-course">
+    mobile.innerHTML = coursesTaught.map((course, i) => `
+      <div class="m-course fade-up" data-delay="${i * 60}">
         <div class="m-tags"><span>${course.courseLevel}</span><span>${course.field}</span><span>${course.courseFocus}</span></div>
         <h3>${course.title}</h3>
         <p>${course.description}</p>
@@ -271,8 +273,8 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
 (function renderStudents() {
   const list = document.getElementById("studentList");
   if (list) {
-    list.innerHTML = notableStudents.map(s => `
-      <div class="sl-item">
+    list.innerHTML = notableStudents.map((s, i) => `
+      <div class="sl-item fade-up" data-delay="${i * 70}">
         <div class="sl-avatar">${initials(s.name)}</div>
         <div class="sl-body">
           <div class="sl-role">${s.role}</div>
@@ -286,8 +288,8 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
   // Mobile: avatar rows
   const grid = gridByMobileTitle('STUDENTS');
   if (grid) {
-    grid.innerHTML = `<div class="m-slist">` + notableStudents.map(s => `
-      <div class="m-srow">
+    grid.innerHTML = `<div class="m-slist">` + notableStudents.map((s, i) => `
+      <div class="m-srow fade-up" data-delay="${i * 60}">
         <div class="m-av">${initials(s.name)}</div>
         <div>
           <div class="m-srole">${s.role}</div>

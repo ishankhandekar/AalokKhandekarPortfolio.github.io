@@ -333,7 +333,12 @@ const observer3 = new IntersectionObserver((entries) => {
   threshold: 0.1
 });
 
-faders.forEach(fader => observer3.observe(fader));
+// Fail-safe: if IntersectionObserver is unavailable, just show everything.
+if (!("IntersectionObserver" in window)) {
+  faders.forEach(fader => fader.classList.add("visible"));
+} else {
+  faders.forEach(fader => observer3.observe(fader));
+}
 
 
 /* ---- Mobile hamburger menu + section nav + research rows ---- */

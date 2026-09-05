@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="UTF-8" />
-    
+    <!-- Enable scroll-reveal hidden states only when JS is running (avoids
+         content being stuck invisible if scripts fail). Runs before paint. -->
+    <script>document.documentElement.classList.add('js-reveal');</script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -212,8 +215,8 @@
 
         <section class="aboutSection" id="about">
             <div class="left-column">
-                <div class="about-kicker">Education</div>
-                <h1 class="about-title">My Academic Background</h1>
+                <div class="about-kicker fade-up">Education</div>
+                <h1 class="about-title fade-up">My Academic Background</h1>
                 <!-- Populated from `education` in data.js by render.js -->
                 <div class="timeline" id="eduTimeline"></div>
                 <div class="getInTouchLink" style="display: flex; padding-top: 2rem;">
@@ -229,8 +232,8 @@
                 </div>
             </div>
             <div class="right-column">
-                <div class="about-kicker">Research</div>
-                <h1 class="about-title">Research Interests & Focus</h1>
+                <div class="about-kicker fade-up">Research</div>
+                <h1 class="about-title fade-up">Research Interests & Focus</h1>
                 <div id="researchTopicsContainer">
                 
                 <div style="">
@@ -328,7 +331,7 @@
 
 
         <section style="background-color: #232532;" id="mobileEducation">
-            <h1 class="mobileEducationTitle">EDUCATION</h1>
+            <h1 class="mobileEducationTitle fade-up">EDUCATION</h1>
             <div class="pub-grid">
                 <div class="pub-card">
                     <div class="pub-meta">
@@ -412,7 +415,7 @@
 
 
         <section style="background-color: #232532;" id="mobileEducation">
-            <h1 class="mobileEducationTitle">RESEARCH</h1>
+            <h1 class="mobileEducationTitle fade-up">RESEARCH</h1>
             <div class="pub-grid">
                 <div class="pub-card">
 
@@ -525,8 +528,8 @@
 
 
         <section style="background-color: #232532;" id="projects">
-            <h1 class="publicationsTitle">Ongoing Projects & Work</h1>
-            <h1 class="mobileEducationTitle">PROJECTS</h1>
+            <h1 class="publicationsTitle fade-up">Ongoing Projects & Work</h1>
+            <h1 class="mobileEducationTitle fade-up">PROJECTS</h1>
             <div class="pub-grid" id="project-cards">
                 <!--
                 <div class="pub-card">
@@ -757,7 +760,7 @@
         <section id="mentorship">
             <div class="flexContainerMentorship">
                 <div class="courses-col">
-                    <h2 class="mentorColTitle">Teaching History</h2>
+                    <h2 class="mentorColTitle fade-up">Teaching History</h2>
                     <div class="courses timeline" id="courseList">
                     <div class="courseCard">
                         <div class="fullCardMeta">
@@ -820,7 +823,7 @@
                     </div>
                 </div>
                 <div class="students-col">
-                    <h2 class="mentorColTitle">Notable Students</h2>
+                    <h2 class="mentorColTitle fade-up">Notable Students</h2>
                     <!-- Populated from notableStudents in data.js by render.js -->
                     <div class="student-list" id="studentList"></div>
                 </div>
@@ -829,7 +832,7 @@
 
 
         <section style="background-color: #232532;" class="" id="mobileEducation">
-            <h1 class="mobileEducationTitle">COURSES TAUGHT</h1>
+            <h1 class="mobileEducationTitle fade-up">COURSES TAUGHT</h1>
             <div class="pub-grid mobileCourses" >
                 <div class="pub-card">
                     <div class="pub-meta">
@@ -877,7 +880,7 @@
 
 
         <section style="background-color: #232532;" id="mobileEducation">
-            <h1 class="mobileEducationTitle">STUDENTS</h1>
+            <h1 class="mobileEducationTitle fade-up">STUDENTS</h1>
             <div class="pub-grid">
                 <div class="pub-card">
                     <div class="pub-meta">
@@ -939,7 +942,7 @@
             <div class="contact-wrap">
                 <div class="contact-grid">
                     <div class="contact-main">
-                        <div class="contact-kicker">Contact</div>
+                        <div class="contact-kicker fade-up">Contact</div>
                         <div class="contact-headrow">
                             <h2>Get in Touch</h2>
                             <span class="contact-rule"></span>
