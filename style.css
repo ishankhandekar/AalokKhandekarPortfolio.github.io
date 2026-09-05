@@ -740,7 +740,7 @@ object-fit: cover;
   position: relative;
 }
 .right-column{
-  margin-top: 5rem;
+  margin-top: 8rem;
   flex: 1;
 }
 .left-column{
