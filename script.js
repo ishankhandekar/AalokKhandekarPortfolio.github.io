@@ -372,4 +372,13 @@ function mRes(btn) {
   btn.closest(".m-rrow").classList.toggle("open");
 }
 
+// Close the mobile menu when tapping anywhere that isn't a nav link.
+document.addEventListener("DOMContentLoaded", () => {
+  const mm = document.querySelector(".mobileMenu");
+  if (!mm) return;
+  mm.addEventListener("click", (e) => {
+    if (!e.target.closest("a")) document.body.classList.remove("menu-open");
+  });
+});
+
 

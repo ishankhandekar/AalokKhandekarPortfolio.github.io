@@ -2000,8 +2000,9 @@ justify-content: space-between;
 .researchDropdownContent.show::before{ transform: scaleY(1); }
 
 
-/* Hamburger is mobile-only; hidden on desktop. */
+/* Hamburger + mobile menu are mobile-only; hidden on desktop. */
 .menuToggle{ display: none; }
+.mobileMenu{ display: none; }
 
 /* ============================================================
    MOBILE REFINEMENT (<=1200px only) — hamburger menu + refined,
@@ -2013,15 +2014,15 @@ justify-content: space-between;
 
   /* ---- hamburger + fullscreen menu ---- */
   .menuToggle{
-    display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
     width: 40px; height: 40px; border: none; background: none; cursor: pointer;
-    z-index: 10001; margin-left: auto;
+    z-index: 10001; margin-left: auto; margin-right: 2px; flex: none;
   }
-  .menuToggle span{ display:block; height:2px; width:22px; background:#f2f3f8; margin-left:auto; transition:transform .35s ease, opacity .25s ease, width .3s ease; }
-  .menuToggle span:nth-child(2){ width:15px; }
+  .menuToggle span{ display:block; height:2px; width:22px; border-radius:2px; background:#f2f3f8;
+    transition: transform .4s cubic-bezier(.6,.05,.2,1), opacity .25s ease; }
   body.menu-open .menuToggle span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
-  body.menu-open .menuToggle span:nth-child(2){ opacity:0; }
-  body.menu-open .menuToggle span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); width:22px; }
+  body.menu-open .menuToggle span:nth-child(2){ opacity:0; transform: translateX(-8px); }
+  body.menu-open .menuToggle span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
 
   .mobileMenu{
     position: fixed; inset: 0; z-index: 10000; background:#15161e;
