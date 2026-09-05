@@ -1868,9 +1868,9 @@ justify-content: space-between;
   width: 46px; height: 46px;
   flex: none;
   border-radius: 50%;
-  background: rgba(254,193,87,.14);
-  color: #fec157;
-  border: 1px solid rgba(254,193,87,.25);
+  background: rgba(255,255,255,.05);
+  color: #c9ccda;
+  border: 1px solid rgba(255,255,255,.12);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1884,7 +1884,7 @@ justify-content: space-between;
   letter-spacing: .12em;
   font-size: .62rem;
   font-weight: 600;
-  color: #fec157;
+  color: #9297aa;
   margin-bottom: 3px;
 }
 .sl-name{
@@ -1905,7 +1905,7 @@ justify-content: space-between;
   margin-top: 7px;
   font-family: montserrat;
   font-size: .74rem;
-  color: rgba(254,193,87,.9);
+  color: #8b90a3;
 }
 
 
