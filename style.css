@@ -1541,11 +1541,11 @@ justify-content: space-between;
     margin-bottom: 26px;
   }
   .heroText p{
-    font-size: clamp(1.1rem, 1.7vw, 1.55rem);
-    line-height: 1.5;
+    font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+    line-height: 1.55;
     font-weight: 400;
-    color: #d4d7e2;
-    max-width: 24ch;
+    color: rgba(255,255,255,.5);
+    max-width: 30ch;
     margin: 0 0 36px 0;
   }
   .heroButtons a{ color: #fec157; }
