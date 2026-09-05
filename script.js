@@ -79,45 +79,39 @@ function setActive(id) {
   }
 }
 
-// IntersectionObserver for everything except bottom edge cases
-const observer = new IntersectionObserver(
-  (entries) => {
-    const visibleSections = entries
-      .filter((entry) => entry.isIntersecting)
-      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+// Scroll-spy: deterministically pick the section currently under a
+// reference line ~30% down the viewport. Walks every nav target (skipping
+// ones hidden at the current breakpoint) so About/Projects/etc. all light up.
+const navTargetIds = ["intro", "about", "projects", "mentorship", "contact"];
 
-    if (visibleSections.length > 0) {
-      const topSection = visibleSections[0];
-      const sectionId = topSection.target.getAttribute("id");
-      setActive(sectionId);
-    }
-  },
-  {
-    threshold: 0.1,
-    rootMargin: "-20% 0px -70% 0px",
-  }
-);
-
-sections.forEach((section) => observer.observe(section));
-
-// Manual scroll fallback for bottom + mentorship
-window.addEventListener("scroll", () => {
-  const contact = document.querySelector("#contact");
-  const mentorship = document.querySelector("#mentorship");
-
-  if (!contact || !mentorship) return;
+function updateActiveNav() {
+  const targets = navTargetIds
+    .map((id) => document.getElementById(id))
+    .filter((el) => el && getComputedStyle(el).display !== "none");
+  if (!targets.length) return;
 
   const scrollPos = window.scrollY + window.innerHeight;
   const docHeight = document.documentElement.scrollHeight;
 
-  if (Math.abs(scrollPos - docHeight) < 5) {
-    // At the bottom → Contact
-    setActive("contact");
-  } else if (window.scrollY >= mentorship.offsetTop) {
-    // Not at bottom but past mentorship → Mentorship
-    setActive("mentorship");
+  // At the very bottom → last visible section (Contact).
+  if (Math.abs(scrollPos - docHeight) < 2) {
+    setActive(targets[targets.length - 1].id);
+    return;
   }
-});
+
+  const line = window.scrollY + window.innerHeight * 0.3;
+  let currentId = targets[0].id;
+  for (const sec of targets) {
+    const top = sec.getBoundingClientRect().top + window.scrollY;
+    if (top <= line) currentId = sec.id;
+  }
+  setActive(currentId);
+}
+
+window.addEventListener("scroll", updateActiveNav, { passive: true });
+window.addEventListener("resize", updateActiveNav);
+window.addEventListener("load", updateActiveNav);
+updateActiveNav();
 
 // Smooth scroll when clicking nav
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
