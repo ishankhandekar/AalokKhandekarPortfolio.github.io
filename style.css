@@ -1269,7 +1269,7 @@ margin: 0.2rem 0.2rem;
   z-index: 2;
   max-width: 1360px;
   width: 100%;
-  padding: clamp(3rem, 4.5vw, 4.5rem) clamp(24px, 5vw, 72px);
+  padding: clamp(2.25rem, 3vw, 3rem) clamp(40px, 5.5vw, 88px);
 }
 .contact-grid { display: flex; gap: 0; align-items: flex-start; }
 
@@ -1283,7 +1283,7 @@ margin: 0.2rem 0.2rem;
 
 .contact-headrow { display: flex; align-items: center; gap: clamp(20px, 2vw, 34px); margin: 0 0 1.4rem; }
 .contact-headrow h2 {
-  font-size: clamp(3rem, 5vw, 4.6rem); line-height: 1; letter-spacing: -.02em;
+  font-size: clamp(2.1rem, 3.4vw, 3.1rem); line-height: 1; letter-spacing: -.02em;
   margin: 0; white-space: nowrap; color: #f2f3f8; font-weight: 700;
 }
 .contact-rule { flex: 1; height: 1px; background: rgba(255,255,255,.12); }
@@ -1317,12 +1317,6 @@ a.contact-val:hover svg { transform: translateX(2px); opacity: 1; }
   padding-bottom: 3px; transition: background-size .35s ease, color .25s;
 }
 .contact-email:hover { background-size: 100% 1.5px; color: #f2f3f8; gap: 8px; }
-
-.contact-watermark {
-  position: absolute; right: -2vw; bottom: -14vh; z-index: 0;
-  font-weight: 700; font-size: 34vw; line-height: .8; letter-spacing: -.04em;
-  color: rgba(255,255,255,.02); pointer-events: none; user-select: none;
-}
 
 @media(max-width: 1200px){
   .contact-section{
