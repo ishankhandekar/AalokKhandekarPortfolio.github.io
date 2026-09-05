@@ -71,7 +71,7 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
 
   // Footer LinkedIn links (the contact-rail one is handled separately below,
   // so exclude it here to preserve its trailing icon).
-  document.querySelectorAll('a[href*="linkedin.com"]:not(#contactLinkedIn)').forEach(a => {
+  document.querySelectorAll('a[href*="linkedin.com"]:not(#contactLinkedIn):not(#mmLinkedin)').forEach(a => {
     a.href = profile.linkedin;
     // Only rewrite the visible text for links that already SHOW the URL
     // (the footer). Leave wrapper links like the hero's "View LinkedIn" button alone.
@@ -130,17 +130,17 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
       </div>`).join('');
   }
 
+  // Mobile: a light hairline list with gold years
   const grid = gridByMobileTitle('EDUCATION');
   if (grid) {
-    grid.innerHTML = education.map(e => `
-      <div class="pub-card">
-        <div class="pub-meta">
-          <small class="venue">Graduated ${e.year}</small>
-          <small class="location">${e.institution}</small>
+    grid.innerHTML = `<div class="m-edu">` + education.map(e => `
+      <div class="m-edu-row">
+        <span class="m-edu-yr">&rsquo;${String(e.year).slice(2)}</span>
+        <div>
+          <div class="m-edu-deg">${e.credential} <span>${e.field}</span></div>
+          <div class="m-edu-inst">${e.institution}</div>
         </div>
-        <h3 class="pub-title">${e.credential} in ${e.field}</h3>
-        ${(e.links && e.links.length) ? `<div class="pub-links">${e.links.map(l => `<a href="${l.url}" target="_blank">${l.label} ${EXT_ICON}</a>`).join('')}</div>` : ''}
-      </div>`).join('');
+      </div>`).join('') + `</div>`;
   }
 })();
 
@@ -172,19 +172,17 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
     });
   }
 
+  // Mobile: quiet expandable rows (tap to open)
   const grid = gridByMobileTitle('RESEARCH');
   if (grid) {
-    grid.innerHTML = topicsOfResearch.map(t => {
-      const { short, more } = splitDesc(t.description);
-      const readMore = more
-        ? `<span id="dots">...</span> <button class="read-more-btn" style="font-weight:800;text-decoration:none;" onclick="toggleReadMore(this)">Read More ▼</button><span class="more">${more}</span> <button class="read-less-btn" style="font-weight:800;text-decoration:none;" onclick="toggleReadLess(this)">Read Less ▲</button>`
-        : '';
-      return `
-        <div class="pub-card">
-          <h3 class="pub-title">${t.title}</h3>
-          <p class="researchDescription short">${short}${readMore}</p>
-        </div>`;
-    }).join('');
+    grid.innerHTML = topicsOfResearch.map(t => `
+      <div class="m-rrow">
+        <button class="m-rrow-h" onclick="mRes(this)">
+          <span>${t.title}</span>
+          <svg class="m-plus" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+        </button>
+        <div class="m-rrow-d"><p>${t.description}</p></div>
+      </div>`).join('');
   }
 })();
 
@@ -254,22 +252,15 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
     });
   }
 
+  // Mobile: compact tag cards
   const mobile = document.querySelector(".mobileCourses");
   if (mobile) {
-    mobile.innerHTML = "";
-    coursesTaught.forEach(course => {
-      const card = document.createElement("div");
-      card.className = "pub-card";
-      card.innerHTML = `
-        <div class="pub-meta">
-          <small class="venue">${course.courseLevel}</small>
-          <small class="location">${course.courseFocus}</small>
-        </div>
-        <h3 class="pub-title" style="margin-bottom: 0.5rem;">${course.title}</h3>
-        <p class="courseDescription" style="font-size: 0.8rem;">${course.description}</p>
-      `;
-      mobile.appendChild(card);
-    });
+    mobile.innerHTML = coursesTaught.map(course => `
+      <div class="m-course">
+        <div class="m-tags"><span>${course.courseLevel}</span><span>${course.field}</span><span>${course.courseFocus}</span></div>
+        <h3>${course.title}</h3>
+        <p>${course.description}</p>
+      </div>`).join('');
   }
 })();
 
@@ -292,16 +283,18 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
       </div>`).join('');
   }
 
+  // Mobile: avatar rows
   const grid = gridByMobileTitle('STUDENTS');
   if (grid) {
-    grid.innerHTML = notableStudents.map(s => `
-      <div class="pub-card">
-        <div class="pub-meta">
-          <small class="venue">${s.role}</small>
-          ${s.status ? `<small class="location">${s.status}</small>` : ''}
+    grid.innerHTML = `<div class="m-slist">` + notableStudents.map(s => `
+      <div class="m-srow">
+        <div class="m-av">${initials(s.name)}</div>
+        <div>
+          <div class="m-srole">${s.role}</div>
+          <div class="m-sname">${s.name}</div>
+          <div class="m-scon">${s.contribution}</div>
+          ${s.status ? `<span class="m-sstatus">&rarr; ${s.status}</span>` : ''}
         </div>
-        <h3 class="pub-title" style="margin-bottom: 0.5rem; margin-top: 0.5rem;">${s.name}</h3>
-        <p class="student-contribution"><strong>Student Contributions:</strong> ${s.contribution}</p>
-      </div>`).join('');
+      </div>`).join('') + `</div>`;
   }
 })();

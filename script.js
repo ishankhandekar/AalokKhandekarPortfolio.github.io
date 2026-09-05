@@ -336,3 +336,40 @@ const observer3 = new IntersectionObserver((entries) => {
 faders.forEach(fader => observer3.observe(fader));
 
 
+/* ---- Mobile hamburger menu + section nav + research rows ---- */
+function toggleMobileMenu() {
+  document.body.classList.toggle("menu-open");
+}
+
+function mNav(key) {
+  document.body.classList.remove("menu-open");
+  if (key === "intro") { window.scrollTo({ top: 0, behavior: "smooth" }); return; }
+
+  let target = null;
+  if (key === "projects") {
+    target = document.querySelector("#projects");
+  } else if (key === "contact") {
+    target = document.querySelector(".mobileFooter");
+  } else {
+    const map = { about: "EDUCATION", mentorship: "COURSES TAUGHT" };
+    const label = [...document.querySelectorAll(".mobileEducationTitle")]
+      .find(el => el.textContent.trim().toUpperCase() === map[key]);
+    target = label ? label.closest("section") : null;
+  }
+  if (target) {
+    const y = target.getBoundingClientRect().top + window.scrollY - 50;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+}
+
+// close the menu if the viewport grows back to desktop
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1200) document.body.classList.remove("menu-open");
+});
+
+// mobile research accordion rows
+function mRes(btn) {
+  btn.closest(".m-rrow").classList.toggle("open");
+}
+
+

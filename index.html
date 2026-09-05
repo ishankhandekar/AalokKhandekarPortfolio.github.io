@@ -95,7 +95,24 @@
         <div class="tableOfContents">
             <p>INTRO</p>
         </div>
+
+        <button class="menuToggle" aria-label="Menu" onclick="toggleMobileMenu()">
+            <span></span><span></span><span></span>
+        </button>
     </div>
+
+    <!-- Mobile fullscreen menu (shown only <=1200px) -->
+    <nav class="mobileMenu" id="mobileMenu">
+        <a onclick="mNav('intro')"><span class="num">01</span> Intro</a>
+        <a onclick="mNav('about')"><span class="num">02</span> About</a>
+        <a onclick="mNav('projects')"><span class="num">03</span> Projects</a>
+        <a onclick="mNav('mentorship')"><span class="num">04</span> Mentorship</a>
+        <a onclick="mNav('contact')"><span class="num">05</span> Contact</a>
+        <div class="mm-foot">
+            <span id="mmEmail">Aalok@la.iith.ac.in</span>
+            <a id="mmLinkedin" href="https://in.linkedin.com/in/akhandekar" target="_blank" rel="noopener noreferrer">in.linkedin.com/in/akhandekar &nearr;</a>
+        </div>
+    </nav>
 
 
 </header>
