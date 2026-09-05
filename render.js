@@ -115,9 +115,20 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
    EDUCATION  ->  about summary + mobile EDUCATION cards
    ===================================================================== */
 (function renderEducation() {
-  setHTML('#about .left-column p', education
-    .map(e => `<strong>${e.credential}</strong> ${e.field}, ${e.institution}, ${e.year}`)
-    .join('<br>\n'));
+  // Desktop: a mini-timeline (mirrors the Teaching History timeline)
+  const tl = document.getElementById('eduTimeline');
+  if (tl) {
+    tl.innerHTML = education.map(e => `
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-head">
+            <span class="tl-year">${e.year}</span>
+            <span class="tl-format">${e.institution}</span>
+          </div>
+          <h3>${e.credential} <span class="edu-field">— ${e.field}</span></h3>
+        </div>
+      </div>`).join('');
+  }
 
   const grid = gridByMobileTitle('EDUCATION');
   if (grid) {
@@ -148,12 +159,11 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
         <hr>
         <div class="researchDropdownToggle" id="${topic.title.toLowerCase().replace(/\s+/g, '-')}">
           <span class="pill-text">${topic.title}</span>
-          <svg class="plusSign" xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem"
+          <svg class="plusSign" xmlns="http://www.w3.org/2000/svg" width="1.1rem" height="1.1rem"
                style="color: #fec157;" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M8 12h8" />
-            <path d="M12 8v8" />
+            <path d="M12 5v14" />
+            <path d="M5 12h14" />
           </svg>
         </div>
         <p class="researchDropdownContent">${topic.description}</p>

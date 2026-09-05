@@ -1812,7 +1812,7 @@ justify-content: space-between;
 .tl-year{
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 600;
-  color: #fec157;
+  color: #c9ccda;
   font-size: 1.3rem;
   line-height: 1;
 }
@@ -1907,6 +1907,53 @@ justify-content: space-between;
   font-size: .74rem;
   color: #8b90a3;
 }
+
+/* ============================================================
+   About — unified accent-tick headings, Education as a mini
+   timeline (reusing .timeline / .tl-*), and a polished accordion.
+   Desktop only (#about is display:none below 1200px).
+   ============================================================ */
+.about-kicker{
+  display: flex; align-items: center; gap: 12px;
+  font-family: montserrat;
+  text-transform: uppercase; letter-spacing: .22em;
+  font-size: .72rem; font-weight: 600; color: #9297aa;
+  margin: 0 0 18px 10px;
+}
+.about-kicker::before { content: ""; width: 24px; height: 1px; background: #fec157; display: inline-block; }
+
+.aboutSection .about-title{
+  font-family: montserrat; font-weight: 600;
+  font-size: clamp(1.7rem, 2.4vw, 2.1rem);
+  color: #f2f3f8; letter-spacing: -.01em;
+  margin: 0 0 2rem 10px; padding-bottom: 0;
+}
+
+/* Education timeline: the degree title with a muted field */
+#eduTimeline { margin-left: 10px; }
+#eduTimeline .tl-content h3 { font-size: 1.05rem; }
+.edu-field { color: #9297aa; font-weight: 500; }
+
+/* Research accordion — polished */
+.right-column hr{
+  height: 1px; border: none; margin: 0;
+  background: rgba(255,255,255,.12);
+}
+.researchDropdownToggle{
+  height: auto; margin: 0; padding: 16px 6px;
+  align-items: center;
+  transition: padding-left .25s ease;
+}
+.researchDropdownToggle:hover{ padding-left: 12px; }
+.right-column .pill-text{
+  font-size: .98rem; font-weight: 600; color: #9297aa;
+  transition: color .25s ease;
+}
+.researchDropdownToggle:hover .pill-text,
+.researchDropdownToggle:has(.plusSign.rotate) .pill-text{ color: #f2f3f8; }
+.plusSign{ color: #fec157; flex: none; }
+.researchDropdownContent{ margin-left: 6px; }
+.researchDropdownContent.show{ padding: 0 6px 18px 6px; max-width: 52ch; }
 
 
 

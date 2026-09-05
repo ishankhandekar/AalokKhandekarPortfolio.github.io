@@ -191,12 +191,10 @@
 
         <section class="aboutSection" id="about">
             <div class="left-column">
-                <small style="white-space: pre;">– Education</small>
-                <h1>My Academic Background</h1>
-                <p><strong>Ph.D.</strong> Science & Technology Studies, Rensselaer Polytechnic Institute, 2010 <br>
-                    <strong>M.S.</strong> Electrical Engineering, Pennsylvania State University, 2004 <br>
-                    <strong>B.E.</strong> Electrical Engineering, Mumbai University, 2002
-                </p>
+                <div class="about-kicker">Education</div>
+                <h1 class="about-title">My Academic Background</h1>
+                <!-- Populated from `education` in data.js by render.js -->
+                <div class="timeline" id="eduTimeline"></div>
                 <div class="getInTouchLink" style="display: flex; padding-top: 2rem;">
                     <a style="display: inline;" href="https://hass.rpi.edu/science-technology-studies" target="_blank"
                         rel="noopener noreferrer">Explore STS at RPI</a>
@@ -210,8 +208,8 @@
                 </div>
             </div>
             <div class="right-column">
-
-                <h1>Research Interests & Focus</h1>
+                <div class="about-kicker">Research</div>
+                <h1 class="about-title">Research Interests & Focus</h1>
                 <div id="researchTopicsContainer">
                 
                 <div style="">
