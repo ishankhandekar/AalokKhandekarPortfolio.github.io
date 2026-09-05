@@ -1379,15 +1379,30 @@ justify-content: space-between;
   margin-left: 3vw;
   margin-right: 3vw;
 }
+.creditsAndCopyright hr{
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,.1);
+  margin: 0;
+}
 .creditsAndCopyrightFlex{
-  display: flex; justify-content: space-between;
+  display: flex; justify-content: space-between; align-items: flex-start;
 }
 .creditsAndCopyright p{
-  color: white;
+  color: #9297aa;
   font-family: montserrat;
-  font-size: 0.8rem;
-  padding-top: 10px;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  padding-top: 14px;
   white-space: pre;
+}
+.creditsAndCopyright p strong{
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: #c9ccda;
+}
+.siteCredit{
+  color: #9297aa;
 }
 .mobileFooter{
   display: none;
