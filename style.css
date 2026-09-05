@@ -1250,71 +1250,80 @@ margin: 0.2rem 0.2rem;
 
 }
 
+/* ============================================================
+   Contact — closing "bookend" section that mirrors the hero
+   (portrait + label/value rail, hairline top, AK watermark).
+   Desktop only; the mobile footer carries contact on small screens.
+   ============================================================ */
 .contact-section {
+  position: relative;
+  overflow: hidden;
   background-color: #232532;
-  padding: 2rem 1rem;
-  height: 200px;
+  border-top: 1px solid rgba(255,255,255,.12);
   display: flex;
   justify-content: center;
-}
-
-.contact-content {
-  display: flex;
-  max-width: 1000px;
-  width: 100%;
-  gap: 3rem;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.contact-text {
-  flex: 1;
-  min-width: 250px;
   font-family: montserrat;
-  color: #fff;
+}
+.contact-wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 1360px;
+  width: 100%;
+  padding: clamp(3rem, 4.5vw, 4.5rem) clamp(24px, 5vw, 72px);
+}
+.contact-grid { display: flex; gap: 0; align-items: flex-start; }
+
+.contact-main { flex: 1; min-width: 0; }
+.contact-kicker {
+  display: flex; align-items: center; gap: 12px;
+  text-transform: uppercase; letter-spacing: .22em;
+  font-size: .72rem; font-weight: 600; color: #9297aa; margin-bottom: 26px;
+}
+.contact-kicker::before { content: ""; width: 24px; height: 1px; background: #fec157; }
+
+.contact-headrow { display: flex; align-items: center; gap: clamp(20px, 2vw, 34px); margin: 0 0 1.4rem; }
+.contact-headrow h2 {
+  font-size: clamp(3rem, 5vw, 4.6rem); line-height: 1; letter-spacing: -.02em;
+  margin: 0; white-space: nowrap; color: #f2f3f8; font-weight: 700;
+}
+.contact-rule { flex: 1; height: 1px; background: rgba(255,255,255,.12); }
+
+.contact-lead {
+  font-size: .92rem; color: rgba(255,255,255,.42);
+  max-width: 34ch; line-height: 1.65; margin: 0 0 2rem;
+}
+.contact-availability { display: inline-flex; align-items: center; gap: 10px; font-size: .9rem; color: #9297aa; }
+.contact-pulse { width: 8px; height: 8px; border-radius: 50%; background: #5fbf7e; box-shadow: 0 0 0 4px rgba(95,191,126,.15); }
+
+.contact-rail {
+  flex: 0 0 auto; width: clamp(240px, 27vw, 330px);
+  border-left: 1px solid rgba(255,255,255,.12);
+  padding-left: clamp(40px, 4vw, 68px);
+  display: flex; flex-direction: column; gap: 26px;
+}
+.contact-avatar {
+  height: 64px; width: 64px; border-radius: 50%; object-fit: cover;
+  filter: grayscale(1); border: 1px solid rgba(255,255,255,.14); opacity: .9;
+}
+.contact-label { text-transform: uppercase; letter-spacing: .16em; font-size: .66rem; font-weight: 600; color: #9297aa; margin-bottom: 7px; }
+.contact-val { font-size: 1rem; font-weight: 500; color: #f2f3f8; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+a.contact-val { transition: color .25s, gap .25s; }
+a.contact-val:hover { color: #fec157; gap: 11px; }
+a.contact-val svg { transition: transform .25s; opacity: .7; }
+a.contact-val:hover svg { transform: translateX(2px); opacity: 1; }
+.contact-email {
+  background-image: linear-gradient(#fec157, #fec157);
+  background-size: 0% 1.5px; background-repeat: no-repeat; background-position: 0 100%;
+  padding-bottom: 3px; transition: background-size .35s ease, color .25s;
+}
+.contact-email:hover { background-size: 100% 1.5px; color: #f2f3f8; gap: 8px; }
+
+.contact-watermark {
+  position: absolute; right: -2vw; bottom: -14vh; z-index: 0;
+  font-weight: 700; font-size: 34vw; line-height: .8; letter-spacing: -.04em;
+  color: rgba(255,255,255,.02); pointer-events: none; user-select: none;
 }
 
-.contact-text h2 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-}
-
-.contact-text p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.contact-link {
-  color: #fec157;
-  text-decoration: none;
-  font-weight: bold;
-  transition: padding 0.3s ease, color 0.3s ease;
-  
-}
-
-.EamilLink svg{
-  transition: color 0.5s ease;
-}
-.EmailLink{
-  cursor: pointer;
-}
-.EmailLink:hover .contact-link{
-  padding-right: 5px;
-  color: 	#888da5;
-}
-.EmailLink:hover svg{
-  color: #888da5;
-}
-
-.contact-animation {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 250px;
-}
 @media(max-width: 1200px){
   .contact-section{
     display: none;

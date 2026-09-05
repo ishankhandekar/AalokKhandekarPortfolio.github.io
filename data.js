@@ -23,6 +23,10 @@ export const profile = {
   // One or two sentences under your name.
   tagline: "Exploring urban climate change governance and research cultures through interdisciplinary social science lenses.",
 
+  // Short line + availability shown in the Contact section.
+  contactLead: "Open to research collaborations, academic inquiries, or just a thoughtful conversation.",
+  availability: "Currently open to new collaborations",
+
   // The pills shown under "Focus" in the hero.
   focusTags: ["Urban governance", "Climate adaptation", "STS", "Infrastructure"],
 

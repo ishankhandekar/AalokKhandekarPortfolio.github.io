@@ -917,33 +917,46 @@
 
 
         <section id="contact" class="contact-section">
-            <div class="contact-content">
-
-                <!-- Left side: Text content -->
-                <div class="contact-text">
-                    <h2>Get in Touch</h2>
-
-                    <div class="EmailLink"
-                        onclick="window.open('https://mail.google.com/mail/?view=cm&to=aalok@iith.ac.in', '_blank');">
-                        <a class="contact-link" style="display: inline;">Email Me</a>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="view-CV-Arrow" style="" width="1.2rem"
-                            height="1.2rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-arrow-right-icon lucide-arrow-right">
-                            <path d="M5 12h14" />
-                            <path d="m12 5 7 7-7 7" />
-                        </svg>
+            <div class="contact-watermark" aria-hidden="true">AK</div>
+            <div class="contact-wrap">
+                <div class="contact-grid">
+                    <div class="contact-main">
+                        <div class="contact-kicker">Contact</div>
+                        <div class="contact-headrow">
+                            <h2>Get in Touch</h2>
+                            <span class="contact-rule"></span>
+                        </div>
+                        <p class="contact-lead">Open to research collaborations, academic inquiries, or just a
+                            thoughtful conversation.</p>
+                        <span class="contact-availability"><span class="contact-pulse"></span> <span
+                                id="contactAvailability">Currently open to new collaborations</span></span>
                     </div>
-                </div>
 
-                <!-- Right side: Lottie animation -->
-                <div class="contact-text">
-                    <p>
-                        If you're interested in research collaborations, academic inquiries, or just want to connect,
-                        feel free to reach out. I'm always open to thoughtful conversations.
-                    </p>
+                    <aside class="contact-rail">
+                        <img class="contact-avatar"
+                            src="images/AalokKhandekarHeadshotSquare-photoaidcom-greyscale - Copy.png"
+                            alt="Aalok Khandekar">
+                        <div class="contact-item">
+                            <div class="contact-label">Email</div>
+                            <a class="contact-val contact-email" id="contactEmail" href="mailto:Aalok@la.iith.ac.in">Aalok@la.iith.ac.in</a>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label">LinkedIn</div>
+                            <a class="contact-val" id="contactLinkedIn" href="https://in.linkedin.com/in/akhandekar"
+                                target="_blank" rel="noopener noreferrer">in.linkedin.com/in/akhandekar
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M15 3h6v6" />
+                                    <path d="M10 14 21 3" />
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                </svg></a>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label">Based in</div>
+                            <div class="contact-val" id="contactBased">IIT Hyderabad, India</div>
+                        </div>
+                    </aside>
                 </div>
-
             </div>
         </section>
 

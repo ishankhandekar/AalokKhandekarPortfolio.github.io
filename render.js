@@ -69,7 +69,9 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
     if (a.textContent.trim() === 'Curriculum Vitae') { a.href = profile.cvUrl; a.target = '_blank'; }
   });
 
-  document.querySelectorAll('a[href*="linkedin.com"]').forEach(a => {
+  // Footer LinkedIn links (the contact-rail one is handled separately below,
+  // so exclude it here to preserve its trailing icon).
+  document.querySelectorAll('a[href*="linkedin.com"]:not(#contactLinkedIn)').forEach(a => {
     a.href = profile.linkedin;
     // Only rewrite the visible text for links that already SHOW the URL
     // (the footer). Leave wrapper links like the hero's "View LinkedIn" button alone.
@@ -87,6 +89,20 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
       .map(a => `<a class="changeColorOnHover" href="${a.url}" target="_blank" rel="noopener noreferrer" style="margin-top:0;margin-bottom:0;">${a.label}</a>`)
       .join('');
   });
+
+  // Contact (bookend) section
+  setText('.contact-lead', profile.contactLead);
+  setText('#contactAvailability', profile.availability);
+  const cEmail = document.getElementById('contactEmail');
+  if (cEmail) { cEmail.textContent = profile.email; cEmail.href = 'mailto:' + profile.email; }
+  const cLink = document.getElementById('contactLinkedIn');
+  if (cLink) {
+    cLink.href = profile.linkedin;
+    // preserve the trailing icon; only replace the leading text node
+    const disp = profile.linkedin.replace(/^https?:\/\//, '');
+    if (cLink.firstChild && cLink.firstChild.nodeType === 3) cLink.firstChild.textContent = disp + ' ';
+  }
+  setText('#contactBased', profile.location);
 
   document.querySelectorAll('.siteCredit').forEach(n => { n.textContent = profile.siteCredit; });
   document.querySelectorAll('.creditsAndCopyrightFlex p:not(.siteCredit)').forEach(n => {
