@@ -439,3 +439,22 @@ function legacyCopy(text) {
     document.body.removeChild(ta);
   } catch (e) { /* clipboard unavailable */ }
 }
+
+
+/* ---- Contact bookend: dedicated reveal so it fires when you actually
+   reach the section (not as its top peeks in at the bottom). Triggers
+   once, when the section top crosses the middle of the viewport. ---- */
+(function () {
+  const contact = document.querySelector(".contact-section");
+  if (!contact) return;
+  if (!("IntersectionObserver" in window)) { contact.classList.add("visible"); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0, rootMargin: "0px 0px -50% 0px" });
+  io.observe(contact);
+})();
