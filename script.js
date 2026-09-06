@@ -13,28 +13,41 @@ const navbar = document.getElementById('navbar_wrapper');
         const aboutToggles = document.querySelectorAll(".researchDropdownToggle");
 
         aboutToggles.forEach(toggle => {
+          // These toggles are <div>s — make them real, keyboard-operable buttons.
+          toggle.setAttribute("role", "button");
+          toggle.setAttribute("tabindex", "0");
+          toggle.setAttribute("aria-expanded", "false");
+
           toggle.addEventListener("click", () => {
-            console.log("yay");
             const AboutDropdown = toggle.parentElement.querySelector(".researchDropdownContent");
             const AboutPlus = toggle.querySelector(".plusSign");
-        
+
             if (!AboutDropdown) return;
-        
+
             // Close all other dropdowns and remove chevron rotation
             aboutToggles.forEach(otherToggle => {
               const otherAboutDropdown = otherToggle.parentElement.querySelector(".researchDropdownContent");
               const otherAboutPlus = otherToggle.querySelector(".plusSign");
-        
+
               if (otherAboutDropdown && otherAboutDropdown !== AboutDropdown) {
                 otherAboutDropdown.classList.remove("show");
                 otherAboutPlus?.classList.remove("rotate");
-                console.log("removed")
+                otherToggle.setAttribute("aria-expanded", "false");
               }
             });
-        
+
             // Toggle the clicked dropdown and chevron
-            AboutDropdown.classList.toggle("show");
+            const open = AboutDropdown.classList.toggle("show");
             AboutPlus.classList.toggle("rotate");
+            toggle.setAttribute("aria-expanded", open ? "true" : "false");
+          });
+
+          // Enter / Space activate the toggle, like a button.
+          toggle.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+              e.preventDefault();
+              toggle.click();
+            }
           });
         });
 
@@ -360,12 +373,24 @@ if (!("IntersectionObserver" in window)) {
 
 
 /* ---- Mobile hamburger menu + section nav + research rows ---- */
+function syncMenuBtn(open) {
+  const btn = document.querySelector(".menuToggle");
+  if (btn) {
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+}
 function toggleMobileMenu() {
-  document.body.classList.toggle("menu-open");
+  const open = document.body.classList.toggle("menu-open");
+  syncMenuBtn(open);
+}
+function closeMobileMenu() {
+  document.body.classList.remove("menu-open");
+  syncMenuBtn(false);
 }
 
 function mNav(key) {
-  document.body.classList.remove("menu-open");
+  closeMobileMenu();
   if (key === "intro") { window.scrollTo({ top: 0, behavior: "smooth" }); return; }
 
   let target = null;
@@ -469,4 +494,30 @@ function legacyCopy(text) {
   window.addEventListener("scroll", check, { passive: true });
   window.addEventListener("resize", check);
   check(); // in case it's already in view on load
+})();
+
+
+/* ---- A11y: make the click-to-copy email keyboard-operable, and move
+   focus to <main> when the skip link is used. ---- */
+(function () {
+  document.querySelectorAll(".email-copy").forEach((el) => {
+    el.setAttribute("role", "button");
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("aria-label", "Copy email address to clipboard");
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+        e.preventDefault();
+        copyEmail(el);
+      }
+    });
+  });
+
+  const skip = document.querySelector(".skip-link");
+  const main = document.getElementById("main");
+  if (skip && main) {
+    skip.addEventListener("click", () => {
+      // let the smooth-scroll handler run, then move focus into the content
+      setTimeout(() => main.focus(), 0);
+    });
+  }
 })();

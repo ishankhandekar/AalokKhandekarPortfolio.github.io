@@ -2251,3 +2251,42 @@ justify-content: space-between;
   .js-reveal .contact-section.visible .contact-rule{ transform: scaleX(1); background-color: rgba(255,255,255,.12); }
   .js-reveal .contact-section.visible .contact-rail{ opacity: 1; transform: none; }
 }
+
+
+/* ============================================================
+   Accessibility — skip link + visible keyboard focus ring.
+   (Mouse users are unaffected: :focus-visible only shows for
+   keyboard/AT focus, not clicks.)
+   ============================================================ */
+.skip-link{
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 100000;
+  background: #fec157;
+  color: #1c1e2b;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-family: montserrat, sans-serif;
+  font-weight: 600;
+  font-size: .9rem;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform .2s ease;
+}
+.skip-link:focus{ transform: none; outline: none; }
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible{
+  outline: 2px solid #fec157;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+/* the main landmark is only focusable as a skip-link target — no ring */
+#main:focus,
+#main:focus-visible{ outline: none; }

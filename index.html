@@ -95,11 +95,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
+<a href="#main" class="skip-link">Skip to content</a>
 <header>
 
     <div class="navbar" style="position: fixed; z-index: 10000;">
         <div class="logo">
-            <a href="https://iith.ac.in"><img src="images/Horizontal with white text.png" class="navLogo" width="auto"
+            <a href="https://iith.ac.in" aria-label="IIT Hyderabad home"><img
+                    src="images/Horizontal with white text.png" class="navLogo" alt="IIT Hyderabad" width="auto"
                     style=""></a>
         </div>
         <ul class="links">
@@ -114,7 +116,7 @@
             <p>INTRO</p>
         </div>
 
-        <button class="menuToggle" aria-label="Menu" onclick="toggleMobileMenu()">
+        <button class="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMobileMenu()">
             <svg class="hamburger" viewBox="0 0 28 24" aria-hidden="true">
                 <line class="h-top" x1="2" y1="5" x2="26" y2="5" />
                 <line class="h-mid" x1="2" y1="12" x2="16" y2="12" />
@@ -145,7 +147,7 @@
     <div class="navbar_wrapper" id="navbar_wrapper"></div>
 
 
-    <main>
+    <main id="main" tabindex="-1">
 
         <div style="background-color: #232532;">
             <section id="intro" class="heroSection">
