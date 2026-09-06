@@ -441,38 +441,32 @@ function legacyCopy(text) {
 }
 
 
-/* ---- Contact bookend: dedicated reveal so it fires when you actually
-   reach the section (not as its top peeks in at the bottom). Uses a
-   reachable trigger line plus a page-bottom fallback so it can never get
-   stuck hidden — the section sits just above the footer, so on tall
-   viewports its top may never climb to the middle of the screen. ---- */
+/* ---- Contact bookend: dedicated reveal that fires when you actually
+   reach the section. Position-based (not rootMargin %) so it behaves the
+   same regardless of window height — earlier a taller window could make
+   the trigger line unreachable, so the section would only load at the very
+   bottom (looked like "loads in one browser but not another"). Reveals
+   when the section top rises into the upper part of the viewport, OR the
+   whole section is on screen, OR we're at the page bottom. ---- */
 (function () {
   const contact = document.querySelector(".contact-section");
   if (!contact) return;
 
   let done = false;
-  const reveal = () => {
+  const check = () => {
     if (done) return;
-    done = true;
-    contact.classList.add("visible");
-    if (io) io.disconnect();
-    window.removeEventListener("scroll", onScroll);
+    const r = contact.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+    if (r.top < vh * 0.6 || r.bottom <= vh || atBottom) {
+      done = true;
+      contact.classList.add("visible");
+      window.removeEventListener("scroll", check);
+      window.removeEventListener("resize", check);
+    }
   };
 
-  // Fallback: reveal once we're basically at the bottom of the page,
-  // covering cases where the trigger line can't be reached.
-  const onScroll = () => {
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) reveal();
-  };
-
-  let io = null;
-  if ("IntersectionObserver" in window) {
-    io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => { if (entry.isIntersecting) reveal(); });
-    }, { threshold: 0, rootMargin: "0px 0px -40% 0px" });
-    io.observe(contact);
-    window.addEventListener("scroll", onScroll, { passive: true });
-  } else {
-    reveal();
-  }
+  window.addEventListener("scroll", check, { passive: true });
+  window.addEventListener("resize", check);
+  check(); // in case it's already in view on load
 })();
