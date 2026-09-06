@@ -2197,3 +2197,54 @@ justify-content: space-between;
 .email-copy.copied .copiedMsg{ max-width: 140px; margin-left: 8px; opacity: 1; }
 .email-copy .underlined{ transition: color .25s ease; }
 .email-copy.copied .underlined{ color: #fec157; }
+
+
+/* ============================================================
+   Contact "bookend" reveal (desktop only) — a small choreography:
+   1) the left column fades up,
+   2) the hairline draws left -> right toward the rail,
+   3) on reaching it, the right rail animates in.
+   Driven by .visible (added to .contact-section by the scroll observer
+   via its `fade-contact` class). Gated on .js-reveal + reduced-motion.
+   ============================================================ */
+@media (min-width: 1201px) and (prefers-reduced-motion: no-preference){
+  /* 1) left column — starts down + hidden */
+  .js-reveal .contact-section .contact-kicker,
+  .js-reveal .contact-section .contact-headrow h2,
+  .js-reveal .contact-section .contact-lead,
+  .js-reveal .contact-section .contact-availability{
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .45s cubic-bezier(.16,1,.3,1),
+                transform .45s cubic-bezier(.16,1,.3,1);
+  }
+  .js-reveal .contact-section .contact-headrow h2{ transition-delay: .05s; }
+  .js-reveal .contact-section .contact-lead{ transition-delay: .10s; }
+  .js-reveal .contact-section .contact-availability{ transition-delay: .14s; }
+
+  /* 2) hairline — draws out to the right after the left starts */
+  .js-reveal .contact-section .contact-rule{
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform .3s cubic-bezier(.16,1,.3,1) .26s;
+  }
+
+  /* 3) right rail — animates in once the hairline reaches it */
+  .js-reveal .contact-section .contact-rail{
+    opacity: 0;
+    transform: translateX(14px);
+    transition: opacity .38s ease .56s,
+                transform .44s cubic-bezier(.16,1,.3,1) .56s;
+  }
+
+  /* revealed states */
+  .js-reveal .contact-section.visible .contact-kicker,
+  .js-reveal .contact-section.visible .contact-headrow h2,
+  .js-reveal .contact-section.visible .contact-lead,
+  .js-reveal .contact-section.visible .contact-availability{
+    opacity: 1;
+    transform: none;
+  }
+  .js-reveal .contact-section.visible .contact-rule{ transform: scaleX(1); }
+  .js-reveal .contact-section.visible .contact-rail{ opacity: 1; transform: none; }
+}
