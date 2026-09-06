@@ -310,10 +310,15 @@ function toggleReadLess(btn) {
 const faders = [...document.querySelectorAll('[class*="fade"]')]
   .filter(el => [...el.classList].some(c => c.startsWith("fade")));
 
+// On mobile (<=1200px) reveals re-trigger: they animate in when scrolled into
+// view and back out when scrolled away. On desktop they play once and settle.
+const isMobileReveal = () => window.matchMedia("(max-width: 1200px)").matches;
+
 const observer3 = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     const el = entry.target;
-    const retrigger = el.dataset.retrigger === "true"; // 👈 control retrigger
+    // explicit opt-in via data-retrigger, otherwise auto-on for mobile
+    const retrigger = el.dataset.retrigger === "true" || isMobileReveal();
 
     if (entry.isIntersecting) {
       // delay support
@@ -321,11 +326,11 @@ const observer3 = new IntersectionObserver((entries) => {
       setTimeout(() => {
         el.classList.add('visible');
       }, delay);
-      
-      // if not retrigger, stop observing after first time
+
+      // if not retrigger (desktop), stop observing after first time
       if (!retrigger) observer3.unobserve(el);
     } else if (retrigger) {
-      // remove if allowed to retrigger
+      // scrolled away — reset so it animates back in next time
       el.classList.remove('visible');
     }
   });
