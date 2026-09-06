@@ -2016,6 +2016,8 @@ justify-content: space-between;
     margin: 0; padding: 0 18px;
     box-sizing: border-box;
   }
+  /* clear an old negative margin that pulled the logo into the left wall */
+  .navLogo{ margin-left: 0; }
 
   /* ---- hamburger + fullscreen menu ---- */
   .menuToggle{
