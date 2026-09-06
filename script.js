@@ -334,15 +334,21 @@ const observer3 = new IntersectionObserver((entries) => {
       // if not retrigger, stop observing after first time
       if (!retrigger) observer3.unobserve(el);
     } else if (retrigger) {
-      // remove if allowed to retrigger
-      el.classList.remove('visible');
+      // Directional re-trigger: only reveals happen at the BOTTOM edge.
+      // Un-load an element ONLY when it sits below the viewport (scrolled up
+      // past it). If it merely left via the TOP, keep it "already loaded" so
+      // scrolling back up doesn't re-animate everything above.
+      const rb = entry.rootBounds;
+      const bottomEdge = rb ? rb.bottom : window.innerHeight;
+      const belowViewport = entry.boundingClientRect.top >= bottomEdge;
+      if (belowViewport) el.classList.remove('visible');
     }
   });
 }, {
   threshold: 0,
   // reveal a little after entering / hide a little before the edge, so the
   // transition happens in-frame rather than snapping right at the boundary
-  rootMargin: "0px 0px -12% 0px"
+  rootMargin: "0px 0px -10% 0px"
 });
 
 // Fail-safe: if IntersectionObserver is unavailable, just show everything.
