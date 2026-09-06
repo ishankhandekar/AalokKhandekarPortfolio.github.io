@@ -146,7 +146,12 @@ html{
   scroll-behavior: smooth;
 }
 html, body{
+  /* `clip` prevents horizontal overflow WITHOUT making html/body scroll
+     containers. Using `hidden` on both forced overflow-y:auto on each, which
+     ate the first scroll at the very top/bottom (scroll stuck on first try).
+     `hidden` stays as a fallback for browsers without `clip`. */
   overflow-x: hidden;
+  overflow-x: clip;
   background-color: #232532;
   min-height: 100%;
   transition: background-color 0.4s ease;
