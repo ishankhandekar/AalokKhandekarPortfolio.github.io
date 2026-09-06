@@ -2215,12 +2215,12 @@ justify-content: space-between;
   .js-reveal .contact-section .contact-availability{
     opacity: 0;
     transform: translateY(18px);
-    transition: opacity .45s cubic-bezier(.16,1,.3,1),
-                transform .45s cubic-bezier(.16,1,.3,1);
+    transition: opacity .54s cubic-bezier(.16,1,.3,1),
+                transform .54s cubic-bezier(.16,1,.3,1);
   }
-  .js-reveal .contact-section .contact-headrow h2{ transition-delay: .05s; }
-  .js-reveal .contact-section .contact-lead{ transition-delay: .10s; }
-  .js-reveal .contact-section .contact-availability{ transition-delay: .14s; }
+  .js-reveal .contact-section .contact-headrow h2{ transition-delay: .06s; }
+  .js-reveal .contact-section .contact-lead{ transition-delay: .12s; }
+  .js-reveal .contact-section .contact-availability{ transition-delay: .17s; }
 
   /* 2) hairline — draws out to the right (gold while growing), then once it
         reaches the rail its color cools to the neutral hairline. */
@@ -2228,16 +2228,16 @@ justify-content: space-between;
     transform: scaleX(0);
     transform-origin: left center;
     background-color: #fec157;
-    transition: transform .3s cubic-bezier(.16,1,.3,1) .26s,
-                background-color .45s ease .56s;
+    transition: transform .38s cubic-bezier(.16,1,.3,1) .32s,
+                background-color .55s ease .70s;
   }
 
   /* 3) right rail — animates in once the hairline reaches it */
   .js-reveal .contact-section .contact-rail{
     opacity: 0;
     transform: translateX(14px);
-    transition: opacity .38s ease .56s,
-                transform .44s cubic-bezier(.16,1,.3,1) .56s;
+    transition: opacity .48s ease .70s,
+                transform .56s cubic-bezier(.16,1,.3,1) .70s;
   }
 
   /* revealed states */
