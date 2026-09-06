@@ -112,13 +112,15 @@
   .js-reveal .fade-zoom{
     opacity: 0;
     animation: none;
-    transition: opacity .5s cubic-bezier(.22,1,.36,1),
-                transform .5s cubic-bezier(.22,1,.36,1);
+    /* the state an element transitions TO when it UN-loads (leaving the bottom):
+       longer + eased-in so the drop-away is clearly noticeable */
+    transition: opacity .6s cubic-bezier(.4,0,.2,1),
+                transform .6s cubic-bezier(.4,0,.2,1);
   }
-  .js-reveal .fade-up{ transform: translateY(20px); }
-  .js-reveal .fade-left{ transform: translateX(-20px); }
-  .js-reveal .fade-right{ transform: translateX(20px); }
-  .js-reveal .fade-zoom{ transform: scale(.96); }
+  .js-reveal .fade-up{ transform: translateY(44px) scale(.94); }
+  .js-reveal .fade-left{ transform: translateX(-44px) scale(.94); }
+  .js-reveal .fade-right{ transform: translateX(44px) scale(.94); }
+  .js-reveal .fade-zoom{ transform: scale(.9); }
 
   .js-reveal .fade-up.visible,
   .js-reveal .fade-left.visible,
@@ -127,6 +129,10 @@
     opacity: 1;
     transform: none;
     animation: none;
+    /* the state an element transitions TO when it LOADS in: a touch snappier
+       than the un-load so entering still feels crisp */
+    transition: opacity .5s cubic-bezier(.22,1,.36,1),
+                transform .5s cubic-bezier(.22,1,.36,1);
   }
 }
 
