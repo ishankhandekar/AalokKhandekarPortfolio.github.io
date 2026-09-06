@@ -19,7 +19,7 @@
         rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis./css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,6 +61,21 @@
 
 
     <title>Professor Aalok Khandekar</title>
+
+    <!-- SEO + social preview. Image paths are RELATIVE on purpose so the
+         card keeps working if the site moves to another domain (e.g. IIT). -->
+    <meta name="description" content="Dr. Aalok Khandekar — Associate Professor of Science, Technology & Society at IIT Hyderabad. Research on urban governance, climate change, and research cultures." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Dr. Aalok Khandekar" />
+    <meta property="og:description" content="Associate Professor of Science, Technology & Society at IIT Hyderabad — urban governance, climate adaptation, and research cultures." />
+    <meta property="og:image" content="images/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dr. Aalok Khandekar — Science, Technology & Society, IIT Hyderabad" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dr. Aalok Khandekar" />
+    <meta name="twitter:description" content="Associate Professor of Science, Technology & Society at IIT Hyderabad." />
+    <meta name="twitter:image" content="images/og-image.png" />
 
     <!-- Link to your external CSS file -->
     <link rel="stylesheet" href="style.css" />
@@ -138,7 +153,7 @@
 
 
                     <div class="heroKicker">Science, Technology &amp; Society</div>
-                    <h1 id="desktopHeading" class="fade-up">Dr. Aalok Khandekar</h1>
+                    <h1 id="desktopHeading">Dr. Aalok Khandekar</h1>
                     <h1 id="mobileHeading" ><span style="color: #ffc25d;">Dr.</span> Aalok Khandekar</h1>
                     <hr>
                     <!--<img class="aalokHeadshotNew" src="images/AalokKhandekarHeadshotSquare.png" width="360" height="auto">-->
@@ -993,19 +1008,10 @@
                 <div>
 
                     <h3>Email</h3>
-                    <p id="emailText" class="changeColorOnHover " onclick="copyEmail()" style="cursor: pointer; ">
+                    <p class="changeColorOnHover email-copy" onclick="copyEmail(this)" style="cursor: pointer; ">
                         <span class="underlined">Aalok@la.iith.ac.in</span>
-                        <span id="copiedMsg" style="display: none; margin-left: 6px; opacity: 0.7;">✔ Copied!</span>
+                        <span class="copiedMsg" aria-live="polite">✔ Copied!</span>
                     </p>
-
-                    <script>
-                        function copyEmail() {
-                            navigator.clipboard.writeText("Aalok@la.iith.ac.in");
-                            const msg = document.getElementById("copiedMsg");
-                            msg.style.display = "block";
-                            setTimeout(() => { msg.style.display = "none"; }, 2000);
-                        }
-                    </script>
 
                 </div>
             </div>
@@ -1076,19 +1082,10 @@
                 <div>
 
                     <h3>Email</h3>
-                    <p id="emailText" class="changeColorOnHover " onclick="copyEmail()" style="cursor: pointer; ">
+                    <p class="changeColorOnHover email-copy" onclick="copyEmail(this)" style="cursor: pointer; ">
                         <span class="underlined">Aalok@la.iith.ac.in</span>
-                        <span id="copiedMsg" style="display: none; margin-left: 6px; opacity: 0.7;">✔ Copied!</span>
+                        <span class="copiedMsg" aria-live="polite">✔ Copied!</span>
                     </p>
-
-                    <script>
-                        function copyEmail() {
-                            navigator.clipboard.writeText("Aalok@la.iith.ac.in");
-                            const msg = document.getElementById("copiedMsg");
-                            msg.style.display = "block";
-                            setTimeout(() => { msg.style.display = "none"; }, 2000);
-                        }
-                    </script>
 
                 </div>
                 <div>

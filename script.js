@@ -405,3 +405,37 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+
+/* ---- Copy email address, scoped to the clicked block ---- */
+function copyEmail(el) {
+  const emailEl = el.querySelector(".underlined");
+  const email = emailEl ? emailEl.textContent.trim() : "";
+
+  const flash = () => {
+    el.classList.add("copied");
+    clearTimeout(el._copyTimer);
+    el._copyTimer = setTimeout(() => el.classList.remove("copied"), 1800);
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(email).then(flash).catch(() => { legacyCopy(email); flash(); });
+  } else {
+    legacyCopy(email);
+    flash();
+  }
+}
+
+function legacyCopy(text) {
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "absolute";
+    ta.style.left = "-9999px";
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+  } catch (e) { /* clipboard unavailable */ }
+}
