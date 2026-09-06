@@ -321,11 +321,15 @@ const observer3 = new IntersectionObserver((entries) => {
     const retrigger = el.dataset.retrigger === "true" || isMobileReveal();
 
     if (entry.isIntersecting) {
-      // delay support
-      const delay = el.dataset.delay ? parseInt(el.dataset.delay) : 0;
-      setTimeout(() => {
+      // Stagger only the one-shot desktop reveal; on mobile fire immediately so
+      // elements track the scroll instead of lagging behind it (the main source
+      // of perceived jank when re-triggering on every pass).
+      const delay = (!isMobileReveal() && el.dataset.delay) ? parseInt(el.dataset.delay) : 0;
+      if (delay) {
+        setTimeout(() => { el.classList.add('visible'); }, delay);
+      } else {
         el.classList.add('visible');
-      }, delay);
+      }
 
       // if not retrigger, stop observing after first time
       if (!retrigger) observer3.unobserve(el);
@@ -335,7 +339,10 @@ const observer3 = new IntersectionObserver((entries) => {
     }
   });
 }, {
-  threshold: 0.1
+  threshold: 0,
+  // reveal a little after entering / hide a little before the edge, so the
+  // transition happens in-frame rather than snapping right at the boundary
+  rootMargin: "0px 0px -12% 0px"
 });
 
 // Fail-safe: if IntersectionObserver is unavailable, just show everything.

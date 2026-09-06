@@ -112,9 +112,8 @@
   .js-reveal .fade-zoom{
     opacity: 0;
     animation: none;
-    transition: opacity .55s cubic-bezier(.16,1,.3,1),
-                transform .55s cubic-bezier(.16,1,.3,1);
-    will-change: opacity, transform;
+    transition: opacity .5s cubic-bezier(.22,1,.36,1),
+                transform .5s cubic-bezier(.22,1,.36,1);
   }
   .js-reveal .fade-up{ transform: translateY(20px); }
   .js-reveal .fade-left{ transform: translateX(-20px); }
