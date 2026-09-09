@@ -1544,8 +1544,8 @@ justify-content: space-between;
     margin: 3.7rem auto;              /* cap width + center on large screens */
     align-items: center;
     justify-content: flex-start;      /* keep text + rail grouped together */
-    gap: clamp(40px, 4vw, 84px);
-    padding: 0 clamp(48px, 6vw, 92px);
+    gap: clamp(40px, 4vw, 150px);
+    padding: 0 clamp(48px, 6vw, 120px);
     background: radial-gradient(1000px 720px at 82% 60%, rgba(90,110,170,.09), transparent 62%),
                 linear-gradient(120deg, #23262f 0%, #2a2e3d 60%, #30354a 100%);
   }
@@ -1553,7 +1553,8 @@ justify-content: space-between;
   /* ---- left main type block ---- */
   .heroText{
     width: auto;
-    max-width: 46ch;
+    /* left block widens on wider screens (floor = current 46ch at ~1440) */
+    max-width: max(46ch, 26vw);
     flex: 0 1 auto;                    /* size to content so the rail sits close */
     height: auto;
     margin-left: 0;
@@ -1570,7 +1571,7 @@ justify-content: space-between;
     font-family: montserrat;
     text-transform: uppercase;
     letter-spacing: .22em;
-    font-size: .72rem;
+    font-size: clamp(.72rem, .6vw, .95rem);
     font-weight: 600;
     color: #9297aa;
     margin-bottom: 30px;
@@ -1585,14 +1586,14 @@ justify-content: space-between;
 
   #desktopHeading{
     font-family: montserrat;
-    font-size: clamp(3rem, 4vw, 5.4rem);
+    font-size: clamp(3rem, 4vw, 7.5rem);
     line-height: 1.02;
     letter-spacing: -.015em;
     color: #f2f3f8;
     margin-bottom: 26px;
   }
   .heroText p{
-    font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+    font-size: clamp(0.95rem, 1.25vw, 1.55rem);
     line-height: 1.55;
     font-weight: 400;
     color: rgba(255,255,255,.5);
@@ -1607,17 +1608,18 @@ justify-content: space-between;
   .heroRail{
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: clamp(28px, 2vw, 46px);
     flex: 0 0 auto;
-    width: clamp(220px, 22vw, 300px);
+    /* right rail widens on wider screens (floor ~= current 300px at ~1440) */
+    width: clamp(220px, 21vw, 480px);
     border-left: 1px solid rgba(255,255,255,.12);
-    padding-left: clamp(28px, 2.6vw, 44px);
+    padding-left: clamp(28px, 2.6vw, 64px);
     position: relative;
     z-index: 2;
   }
   .railAvatar{
-    height: 64px;
-    width: 64px;
+    height: clamp(64px, 3.6vw, 92px);
+    width: clamp(64px, 3.6vw, 92px);
     border-radius: 50%;
     object-fit: cover;
     filter: grayscale(1);
@@ -1628,14 +1630,14 @@ justify-content: space-between;
     font-family: montserrat;
     text-transform: uppercase;
     letter-spacing: .16em;
-    font-size: .66rem;
+    font-size: clamp(.66rem, .55vw, .9rem);
     font-weight: 600;
     color: #9297aa;
     margin-bottom: 8px;
   }
   .railItem .railValue{
     font-family: montserrat;
-    font-size: .98rem;
+    font-size: clamp(.98rem, .82vw, 1.32rem);
     font-weight: 500;
     color: #dfe1ea;
     line-height: 1.45;
@@ -1647,7 +1649,7 @@ justify-content: space-between;
   }
   .railTags span{
     font-family: montserrat;
-    font-size: .8rem;
+    font-size: clamp(.8rem, .68vw, 1.05rem);
     color: #c9ccda;
     border: 1px solid rgba(255,255,255,.12);
     padding: 5px 11px;
