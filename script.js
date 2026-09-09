@@ -521,3 +521,42 @@ function legacyCopy(text) {
     });
   }
 })();
+
+
+/* ---- Student Supervision "spotlight wheel" ----
+   Emphasize whichever student sits nearest the vertical center of the
+   scroll container: --spot goes 1 (centered) -> 0 (edge); CSS maps it to
+   opacity + scale. The closest item also gets .is-active (gold avatar). */
+(function () {
+  const box = document.querySelector(".spotlight-scroll");
+  if (!box) return;
+
+  let ticking = false;
+  function update() {
+    ticking = false;
+    const bRect = box.getBoundingClientRect();
+    const center = bRect.top + bRect.height / 2;
+    const half = bRect.height / 2 || 1;
+    const items = box.querySelectorAll(".sl-item");
+    let best = null, bestDist = Infinity;
+
+    items.forEach(it => {
+      const r = it.getBoundingClientRect();
+      const c = r.top + r.height / 2;
+      const dist = Math.abs(c - center);
+      const norm = Math.min(dist / half, 1);         // 0 at center, 1 at edge
+      const spot = Math.pow(1 - norm, 1.6);          // sharper falloff toward center
+      it.style.setProperty("--spot", spot.toFixed(3));
+      if (dist < bestDist) { bestDist = dist; best = it; }
+    });
+    items.forEach(it => it.classList.toggle("is-active", it === best));
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+
+  box.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  window.addEventListener("load", () => requestAnimationFrame(update));
+  requestAnimationFrame(update);   // initial paint
+})();

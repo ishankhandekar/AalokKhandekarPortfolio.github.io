@@ -250,5 +250,17 @@ export const notableStudents = [
     role: "PhD Candidate, STS",
     contribution: "Dissertation on data infrastructures in municipal climate planning.",
     status: "Ongoing"
-  }
+  },
+
+  // ===== PROTOTYPE DUMMIES — delete this block when adding real students =====
+  { name: "Meera Iyer",     role: "M.A. Student, Sociology",        contribution: "Ethnography of e-waste labor in peri-urban recycling markets.",              status: "Ongoing" },
+  { name: "Arjun Nair",     role: "B.Tech Student, Liberal Arts",   contribution: "Mapping citizen air-quality sensing networks across Hyderabad.",              status: "Interning at CSTEP, Bengaluru" },
+  { name: "Priya Deshmukh", role: "PhD Candidate, STS",             contribution: "Infrastructures of urban flood forecasting and warning systems.",             status: "Ongoing" },
+  { name: "Karan Reddy",    role: "M.A. Student, Development",       contribution: "Political economy of rooftop solar adoption in Telangana.",                   status: "Ongoing" },
+  { name: "Fatima Sheikh",  role: "B.Tech Student, Liberal Arts",   contribution: "Discourse analysis of climate migration in regional media.",                  status: "Graduated 2024" },
+  { name: "Rohan Pillai",   role: "PhD Candidate, STS",             contribution: "Standards and metrics in national air-quality governance.",                   status: "Ongoing" },
+  { name: "Ananya Bose",    role: "M.A. Student, Anthropology",     contribution: "Everyday water infrastructures in informal settlements.",                     status: "Ongoing" },
+  { name: "Vikram Joshi",   role: "B.Tech Student, Liberal Arts",   contribution: "Open-data platforms for participatory urban planning.",                       status: "Interning at Janaagraha" },
+  { name: "Leela Krishnan", role: "PhD Candidate, STS",             contribution: "Comparative study of heat-action plans across Indian cities.",                status: "Ongoing" }
+  // ===== END DUMMIES =====
 ];

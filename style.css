@@ -2324,3 +2324,39 @@ select:focus-visible{
    omits the date head so each item leads with the course title. Nudge the
    dot to sit against the title's first line (no year row above it now). */
 #courseList.timeline .tl-item::before{ top: 7px; }
+
+
+/* ============================================================
+   Student Supervision — "spotlight wheel" scroll (desktop).
+   Fixed-height snap-scroller with masked (faded) top/bottom edges;
+   the student nearest the vertical center is emphasized (brighter +
+   scaled up, gold avatar) via a per-item --spot set by script.js.
+   ============================================================ */
+.spotlight-scroll{
+  box-sizing: border-box;           /* desktop defaults to content-box; pin it so padding is inside the height */
+  border-top: none;
+  height: 460px;
+  overflow-y: auto;
+  scroll-snap-type: y proximity;
+  padding: 170px 0;                 /* spacers so first/last can reach center (hidden by the fade) */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
+  scrollbar-width: none;            /* Firefox — hide scrollbar */
+}
+.spotlight-scroll::-webkit-scrollbar{ width: 0; height: 0; }
+
+.spotlight-scroll .sl-item{
+  scroll-snap-align: center;
+  border-bottom: none;
+  opacity: calc(.26 + .74 * var(--spot, 1));
+  transform: scale(calc(.9 + .1 * var(--spot, 1)));
+  transform-origin: left center;
+  transition: none;                 /* driven per-frame by JS while scrolling */
+  will-change: opacity, transform;
+}
+.spotlight-scroll .sl-item.is-active .sl-name{ color: #fff; }
+.spotlight-scroll .sl-item.is-active .sl-avatar{
+  border-color: rgba(254,193,87,.55);
+  color: #fec157;
+  background: rgba(254,193,87,.08);
+}

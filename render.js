@@ -279,7 +279,7 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
   const list = document.getElementById("studentList");
   if (list) {
     list.innerHTML = notableStudents.map((s, i) => `
-      <div class="sl-item fade-up" data-delay="${i * 70}">
+      <div class="sl-item">
         <div class="sl-avatar">${initials(s.name)}</div>
         <div class="sl-body">
           <div class="sl-role">${s.role}</div>
