@@ -35,6 +35,8 @@ export const profile = {
   // Sentence shown under the "Student Supervision" heading.
   // PLACEHOLDER — replace with your own wording.
   supervisionLead: "I supervise students working across society, technology, and the environment — from undergraduate field projects to doctoral research — and welcome inquiries from those drawn to interdisciplinary, socially engaged work.",
+  // Highlighted scroll cue appended after the sentence (desktop only).
+  supervisionHint: "Scroll the list to see who I've mentored",
 
   // The pills shown under "Focus" in the hero.
   focusTags: ["Urban Studies", "Climate Adaptation", "STS", "Infrastructure Studies", "Digital Studies", "Environmental Studies"],
@@ -222,6 +224,13 @@ export const coursesTaught = [
     courseLevel: "Graduate",
     field: "STS",
     courseFocus: "Seminar Focused"
+  },
+  {
+    title: "Environmental Justice & Policy",
+    description: "Equity in environmental decision-making, and the politics of climate adaptation.",
+    courseLevel: "Graduate",
+    field: "STS",
+    courseFocus: "Discussion Based"
   }
 ];
 

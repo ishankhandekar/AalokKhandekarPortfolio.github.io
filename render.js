@@ -103,8 +103,14 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
       .join('');
   });
 
-  // Student Supervision blurb (both desktop + mobile copies).
-  document.querySelectorAll('.js-supervision-lead').forEach(n => { n.textContent = profile.supervisionLead || ''; });
+  // Student Supervision blurb + a highlighted scroll cue (both copies; the
+  // cue is hidden on mobile via CSS since the mobile list doesn't spotlight-scroll).
+  document.querySelectorAll('.js-supervision-lead').forEach(n => {
+    const hint = profile.supervisionHint
+      ? ` <span class="scroll-hint">${profile.supervisionHint}<span class="scroll-hint-arrow" aria-hidden="true">↓</span></span>`
+      : '';
+    n.innerHTML = (profile.supervisionLead || '') + hint;
+  });
 
   // Contact (bookend) section
   setText('.contact-lead', profile.contactLead);
