@@ -235,38 +235,25 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
    COURSES  ->  Teaching History timeline (desktop) + mobile cards
    ===================================================================== */
 (function renderCourses() {
-  const timeline = document.getElementById("courseList");
-  if (timeline) {
-    timeline.innerHTML = "";
+  // Desktop: cards that lead with the course name (this section is about WHAT
+  // he teaches, not when — courses recur, so dates are intentionally omitted).
+  const list = document.getElementById("courseList");
+  if (list) {
+    list.innerHTML = "";
     coursesTaught.forEach((course, i) => {
-      const meta = course.metaDataOne || "";
-      const year = (meta.match(/\b\d{4}\b/) || [""])[0];
-      const format = meta
-        .replace(/-\s*taught\s*/i, "· ")
-        .replace(year, "")
-        .replace(/[-–·]\s*$/, "")
-        .replace(/\s{2,}/g, " ")
-        .trim();
-
-      const item = document.createElement("div");
-      item.className = "tl-item fade-up";
+      const item = document.createElement("article");
+      item.className = "course-item fade-up";
       item.dataset.delay = i * 70;
       item.innerHTML = `
-        <div class="tl-content">
-          <div class="tl-head">
-            ${year ? `<span class="tl-year">${year}</span>` : ""}
-            <span class="tl-format">${format}</span>
-          </div>
-          <h3>${course.title}</h3>
-          <p>${course.description}</p>
-          <div class="tl-tags">
-            <span>${course.courseLevel}</span>
-            <span>${course.field}</span>
-            <span>${course.courseFocus}</span>
-          </div>
+        <h3>${course.title}</h3>
+        <p>${course.description}</p>
+        <div class="course-tags">
+          <span>${course.courseLevel}</span>
+          <span>${course.field}</span>
+          <span>${course.courseFocus}</span>
         </div>
       `;
-      timeline.appendChild(item);
+      list.appendChild(item);
     });
   }
 

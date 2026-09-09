@@ -196,14 +196,13 @@ export const projects = [
 
 
 // ---------------------------------------------------------------------
-//  5) COURSES TAUGHT  —  your teaching history (newest first).
-//     Drives the Teaching History timeline and the mobile COURSES cards.
-//     metaDataOne is parsed for the year + format (e.g. "Lecture · Spring").
+//  5) COURSES  —  what you teach.
+//     Drives the desktop Courses cards and the mobile COURSES cards.
+//     Dates are intentionally omitted (courses recur) — each card leads
+//     with the title, then the description, then the three tags.
 // ---------------------------------------------------------------------
 export const coursesTaught = [
   {
-    // Format + when it was taught. The year is detected automatically.
-    metaDataOne: "Lecture - Taught Spring 2022",
     title: "Qualitative Research Methods",
     description: "Designing, conducting, and analyzing qualitative studies in social research.",
     courseLevel: "Graduate",     // Graduate / Undergraduate ...
@@ -211,7 +210,6 @@ export const coursesTaught = [
     courseFocus: "Seminar Focused"   // format / emphasis
   },
   {
-    metaDataOne: "Workshop - Taught Fall 2021",
     title: "Infrastructure & Society",
     description: "How infrastructures shape, and are shaped by, urban social and political life.",
     courseLevel: "Undergraduate",
@@ -219,7 +217,6 @@ export const coursesTaught = [
     courseFocus: "Field-based"
   },
   {
-    metaDataOne: "Seminar - Taught Spring 2020",
     title: "Science, Technology & the City",
     description: "Interdisciplinary approaches to knowledge, expertise, and urban governance.",
     courseLevel: "Graduate",

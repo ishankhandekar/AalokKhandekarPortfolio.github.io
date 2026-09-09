@@ -2314,3 +2314,49 @@ select:focus-visible{
   line-height: 1.6;
   margin: .4rem 2rem 1.1rem;
 }
+
+
+/* ============================================================
+   Courses (desktop) — cards that lead with the course name.
+   Replaces the old dated timeline: this section is about WHAT
+   is taught, not when. (Mobile keeps its own .m-course cards.)
+   ============================================================ */
+.course-cards{ display: flex; flex-direction: column; gap: 1rem; }
+.course-item{
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 1.4rem 1.5rem;
+  transition: transform .3s ease, border-color .3s ease, box-shadow .4s ease;
+}
+.course-item:hover{
+  transform: translateY(-3px);
+  border-color: rgba(254,193,87,.35);
+  box-shadow: 0 14px 34px rgba(0,0,0,.35);
+}
+.course-item h3{
+  font-family: montserrat, sans-serif;
+  color: #fff;
+  font-size: 1.18rem;
+  font-weight: 600;
+  margin: 0 0 .5rem;
+}
+.course-item p{
+  font-family: montserrat, sans-serif;
+  color: rgba(255,255,255,.55);
+  font-size: .9rem;
+  line-height: 1.55;
+  margin: 0 0 1.1rem;
+  max-width: 46ch;
+}
+.course-item .course-tags{ display: flex; flex-wrap: wrap; gap: 8px; }
+.course-item .course-tags span{
+  font-family: montserrat, sans-serif;
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+  color: #c9ccda;
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 4px 11px;
+  border-radius: 999px;
+}
