@@ -2436,3 +2436,22 @@ select:focus-visible{
   padding-top: 0;
   margin-bottom: 0;
 }
+
+
+/* ============================================================
+   Ultra-wide screens (>=1600px): keep section backgrounds full-width
+   but cap their CONTENT to ~1500px and center it, so columns don't
+   spread edge-to-edge. Hero + Contact are already capped elsewhere.
+   ============================================================ */
+@media (min-width: 1600px){
+  .aboutSection,
+  #mentorship,
+  #projects{
+    padding-inline: max(0px, calc(50% - 750px));
+  }
+  .footerFlexContainer,
+  .creditsAndCopyright{
+    max-width: 1500px;
+    margin-inline: auto;
+  }
+}
