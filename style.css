@@ -1538,7 +1538,9 @@ justify-content: space-between;
   .heroSection{
     position: relative;
     overflow: hidden;                 /* clip watermark to rounded corners */
-    max-width: 1500px;
+    /* grow the card with the viewport on wide screens (floor keeps normal
+       desktop identical; upper bound stops it on super-ultra-wide) */
+    max-width: min(2400px, max(1500px, 86vw));
     margin: 3.7rem auto;              /* cap width + center on large screens */
     align-items: center;
     justify-content: flex-start;      /* keep text + rail grouped together */
