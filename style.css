@@ -2427,3 +2427,12 @@ select:focus-visible{
 @media (prefers-reduced-motion: reduce){
   .contact-note-dot::after{ animation: none; }
 }
+
+
+/* Mobile footer: the rendered links live in a <div>, which was picking up
+   the generic `.mobileFooter div { margin-left: 2rem }` indent. Cancel it. */
+.mobileFooter .js-important-links{
+  margin-left: 0;
+  padding-top: 0;
+  margin-bottom: 0;
+}
