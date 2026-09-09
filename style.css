@@ -2290,3 +2290,27 @@ select:focus-visible{
 /* the main landmark is only focusable as a skip-link target — no ring */
 #main:focus,
 #main:focus-visible{ outline: none; }
+
+
+/* ============================================================
+   Dual appointment in the hero rail (two lines, 2nd muted).
+   ============================================================ */
+.railAppt{ display: block; }
+.railAppt-sec{ margin-top: 7px; color: #9297aa; font-size: .9rem; }
+
+/* Student Supervision intro blurb (desktop column + mobile section). */
+.mentorColLead{
+  font-family: montserrat, sans-serif;
+  color: rgba(255,255,255,.55);
+  font-size: .92rem;
+  line-height: 1.6;
+  max-width: 46ch;
+  margin: 0 0 1.6rem .75rem;
+}
+.m-supervision-lead{
+  font-family: montserrat, sans-serif;
+  color: #8b90a3;
+  font-size: .85rem;
+  line-height: 1.6;
+  margin: .4rem 2rem 1.1rem;
+}

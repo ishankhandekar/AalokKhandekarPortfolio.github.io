@@ -55,10 +55,16 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
   setHTML('#mobileHeading', `<span style="color:#ffc25d;">${profile.honorific}</span> ${profile.name}`);
   setText('.heroKicker', profile.kicker);
   setText('#intro .heroText > p', profile.tagline);
-  setText('#intro .heroText h2', `${profile.role}, ${profile.department}, ${profile.institution}`);
 
-  // Hero info rail
-  setHTML('#railRole', `${profile.role},<br>${profile.department}`);
+  // Full appointment as one or two lines.
+  const appts = (profile.appointments && profile.appointments.length)
+    ? profile.appointments
+    : [`${profile.role}, ${profile.department}`];
+  setText('#intro .heroText h2', `${appts.join(' · ')}, ${profile.institution}`);
+
+  // Hero info rail — each appointment on its own line (2nd line muted).
+  setHTML('#railRole', appts.map((a, i) =>
+    `<span class="railAppt${i ? ' railAppt-sec' : ''}">${a}</span>`).join(''));
   setText('#railBased', profile.location);
   setHTML('#railFocus', profile.focusTags.map(t => `<span>${t}</span>`).join(''));
 
@@ -89,6 +95,16 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
       .map(a => `<a class="changeColorOnHover" href="${a.url}" target="_blank" rel="noopener noreferrer" style="margin-top:0;margin-bottom:0;">${a.label}</a>`)
       .join('');
   });
+
+  // Footer "Important Links" (now driven entirely by data.js).
+  document.querySelectorAll('.js-important-links').forEach(n => {
+    n.innerHTML = (profile.importantLinks || [])
+      .map(l => `<a class="changeColorOnHover" href="${l.url}" target="_blank" rel="noopener noreferrer">${l.label}</a>`)
+      .join('');
+  });
+
+  // Student Supervision blurb (both desktop + mobile copies).
+  document.querySelectorAll('.js-supervision-lead').forEach(n => { n.textContent = profile.supervisionLead || ''; });
 
   // Contact (bookend) section
   setText('.contact-lead', profile.contactLead);
@@ -286,7 +302,7 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
   }
 
   // Mobile: avatar rows
-  const grid = gridByMobileTitle('STUDENTS');
+  const grid = gridByMobileTitle('SUPERVISION');
   if (grid) {
     grid.innerHTML = `<div class="m-slist">` + notableStudents.map((s, i) => `
       <div class="m-srow fade-up" data-delay="${i * 60}">

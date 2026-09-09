@@ -15,10 +15,15 @@ export const profile = {
   name: "Aalok Khandekar",          // your name (without the honorific)
 
   kicker: "Science, Technology & Society",   // small label above your name
-  role: "Associate Professor",               // job title
-  department: "Dept. of Liberal Arts",       // department
+  role: "Associate Professor & Head",        // primary title
+  department: "Dept. of Liberal Arts",       // primary department
+  // Full appointment, shown as two lines in the hero rail.
+  appointments: [
+    "Associate Professor & Head, Dept. of Liberal Arts",
+    "Affiliate Faculty, Dept. of Climate Change"
+  ],
   institution: "IIT Hyderabad",              // institution
-  location: "IIT Hyderabad, India",          // "Based in" line in the hero
+  location: "IIT Hyderabad, India",          // "Based at" line in the hero
 
   // One or two sentences under your name.
   tagline: "Exploring urban climate change governance and research cultures through interdisciplinary social science lenses.",
@@ -27,8 +32,12 @@ export const profile = {
   contactLead: "Open to research collaborations, academic inquiries, or just a thoughtful conversation.",
   availability: "Currently open to new collaborations",
 
+  // Sentence shown under the "Student Supervision" heading.
+  // PLACEHOLDER — replace with your own wording.
+  supervisionLead: "I supervise students working across society, technology, and the environment — from undergraduate field projects to doctoral research — and welcome inquiries from those drawn to interdisciplinary, socially engaged work.",
+
   // The pills shown under "Focus" in the hero.
-  focusTags: ["Urban governance", "Climate adaptation", "STS", "Infrastructure"],
+  focusTags: ["Urban Studies", "Climate Adaptation", "STS", "Infrastructure Studies", "Digital Studies", "Environmental Studies"],
 
   // Links & contact details (used in hero button, contact + footer).
   cvUrl: "assets/Aalok_Khandekar_CV.pdf",
@@ -40,13 +49,16 @@ export const profile = {
   // Footer "Important Links" (label + url). Curriculum Vitae reuses cvUrl.
   importantLinks: [
     { label: "Curriculum Vitae", url: "assets/Aalok_Khandekar_CV.pdf" },
-    { label: "STS at RPI",       url: "https://hass.rpi.edu/science-technology-studies" }
+    { label: "STS at RPI",       url: "https://hass.rpi.edu/science-technology-studies" },
+    { label: "Heating Cities",   url: "https://heatingcities.in" },
+    { label: "STS India",        url: "https://stsin.org" },
+    { label: "4S",               url: "https://4sonline.org" }
   ],
 
   // Institutional affiliations shown in the footer.
   affiliations: [
-    { label: "Dept. of Climate Change",        url: "https://cc.iith.ac.in/" },
-    { label: "Greenko School of Sustainability", url: "https://gss.iith.ac.in/" }
+    { label: "Dept. of Liberal Arts",   url: "https://la.iith.ac.in/" },
+    { label: "Dept. of Climate Change", url: "https://cc.iith.ac.in/" }
   ],
 
   copyrightYear: "2025",

@@ -107,8 +107,8 @@
         <ul class="links">
             <li class="navLinks" id="introLink"><span class="dot"></span><a href="#intro">Intro</a></li>
             <li class="navLinks" id="aboutLink"><span class="dot"></span><a href="#about">About</a></li>
-            <li class="navLinks" id="projectsLink"><span class="dot"></span><a href="#projects">Projects</a></li>
-            <li class="navLinks" id="mentorshipLink"><span class="dot"></span><a href="#mentorship">Mentorship</a></li>
+            <li class="navLinks" id="projectsLink"><span class="dot"></span><a href="#projects">Publications</a></li>
+            <li class="navLinks" id="mentorshipLink"><span class="dot"></span><a href="#mentorship">Teaching</a></li>
             <li class="navLinks" id="contactLink"><span class="dot"></span><a href="#contact">Contact</a></li>
         </ul>
 
@@ -129,8 +129,8 @@
     <nav class="mobileMenu" id="mobileMenu">
         <a onclick="mNav('intro')"><span class="num">01</span> Intro</a>
         <a onclick="mNav('about')"><span class="num">02</span> About</a>
-        <a onclick="mNav('projects')"><span class="num">03</span> Projects</a>
-        <a onclick="mNav('mentorship')"><span class="num">04</span> Mentorship</a>
+        <a onclick="mNav('projects')"><span class="num">03</span> Publications</a>
+        <a onclick="mNav('mentorship')"><span class="num">04</span> Teaching</a>
         <a onclick="mNav('contact')"><span class="num">05</span> Contact</a>
         <div class="mm-foot">
             <span id="mmEmail">Aalok@la.iith.ac.in</span>
@@ -208,7 +208,7 @@
                         <div class="railValue" id="railRole">Associate Professor,<br>Dept. of Liberal Arts</div>
                     </div>
                     <div class="railItem">
-                        <div class="railLabel">Based in</div>
+                        <div class="railLabel">Based at</div>
                         <div class="railValue" id="railBased">IIT Hyderabad, India</div>
                     </div>
                     <div class="railItem">
@@ -545,8 +545,8 @@
 
 
         <section style="background-color: #232532;" id="projects">
-            <h1 class="publicationsTitle fade-up">Ongoing Projects & Work</h1>
-            <h1 class="mobileEducationTitle fade-up">PROJECTS</h1>
+            <h1 class="publicationsTitle fade-up">Recent Publications</h1>
+            <h1 class="mobileEducationTitle fade-up">PUBLICATIONS</h1>
             <div class="pub-grid" id="project-cards">
                 <!--
                 <div class="pub-card">
@@ -777,7 +777,7 @@
         <section id="mentorship">
             <div class="flexContainerMentorship">
                 <div class="courses-col">
-                    <h2 class="mentorColTitle fade-up">Teaching History</h2>
+                    <h2 class="mentorColTitle fade-up">Courses</h2>
                     <div class="courses timeline" id="courseList">
                     <div class="courseCard">
                         <div class="fullCardMeta">
@@ -840,7 +840,8 @@
                     </div>
                 </div>
                 <div class="students-col">
-                    <h2 class="mentorColTitle fade-up">Notable Students</h2>
+                    <h2 class="mentorColTitle fade-up">Student Supervision</h2>
+                    <p class="mentorColLead js-supervision-lead fade-up"></p>
                     <!-- Populated from notableStudents in data.js by render.js -->
                     <div class="student-list" id="studentList"></div>
                 </div>
@@ -849,7 +850,7 @@
 
 
         <section style="background-color: #232532;" class="" id="mobileEducation">
-            <h1 class="mobileEducationTitle fade-up">COURSES TAUGHT</h1>
+            <h1 class="mobileEducationTitle fade-up">COURSES</h1>
             <div class="pub-grid mobileCourses" >
                 <div class="pub-card">
                     <div class="pub-meta">
@@ -897,7 +898,8 @@
 
 
         <section style="background-color: #232532;" id="mobileEducation">
-            <h1 class="mobileEducationTitle fade-up">STUDENTS</h1>
+            <h1 class="mobileEducationTitle fade-up">SUPERVISION</h1>
+            <p class="m-supervision-lead js-supervision-lead fade-up"></p>
             <div class="pub-grid">
                 <div class="pub-card">
                     <div class="pub-meta">
@@ -990,7 +992,7 @@
                                 </svg></a>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-label">Based in</div>
+                            <div class="contact-label">Based at</div>
                             <div class="contact-val" id="contactBased">IIT Hyderabad, India</div>
                         </div>
                     </aside>
@@ -1002,10 +1004,7 @@
             <div style="display: flex; margin-left: 0;">
                 <div style="width: 34vw;">
                     <h3>Important Links</h3>
-                    <a class="changeColorOnHover" target="_blank" rel="noopener noreferrer"
-                        style="margin-top: 10px;">Curriculum Vitae</a>
-                    <a class="changeColorOnHover" target="_blank" rel="noopener noreferrer"
-                        href="https://hass.rpi.edu/science-technology-studies">STS at RPI</a>
+                    <div class="js-important-links"></div>
                 </div>
                 <div>
 
@@ -1061,10 +1060,7 @@
                 <div>
 
                     <h3>Important Links</h3>
-                    <a class="changeColorOnHover" target="_blank" rel="noopener noreferrer"
-                        style="margin-top: 10px;">Curriculum Vitae</a>
-                    <a class="changeColorOnHover" target="_blank" rel="noopener noreferrer"
-                        href="https://hass.rpi.edu/science-technology-studies">STS at RPI</a>
+                    <div class="js-important-links"></div>
                 </div>
                 <div>
 

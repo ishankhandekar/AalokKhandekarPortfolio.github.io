@@ -399,7 +399,7 @@ function mNav(key) {
   } else if (key === "contact") {
     target = document.querySelector(".mobileFooter");
   } else {
-    const map = { about: "EDUCATION", mentorship: "COURSES TAUGHT" };
+    const map = { about: "EDUCATION", mentorship: "COURSES" };
     const label = [...document.querySelectorAll(".mobileEducationTitle")]
       .find(el => el.textContent.trim().toUpperCase() === map[key]);
     target = label ? label.closest("section") : null;
