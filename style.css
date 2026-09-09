@@ -2384,3 +2384,12 @@ select:focus-visible{
 }
 /* the mobile list is a plain stack — no spotlight scroll, so no cue */
 .m-supervision-lead .scroll-hint{ display: none; }
+
+
+/* Give the footer link lists room to breathe (desktop footer). */
+.left-footer-column .js-important-links,
+.left-footer-column .js-affiliations{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
