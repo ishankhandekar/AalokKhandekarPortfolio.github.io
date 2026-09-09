@@ -2393,3 +2393,27 @@ select:focus-visible{
   flex-direction: column;
   gap: 7px;
 }
+
+
+/* Contact note (replaces the availability line) — neutral line with a
+   tiny, gently pulsing mail icon. */
+.contact-note{
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: .88rem;
+  color: #9297aa;
+}
+.contact-note-icon{
+  color: #fec157;
+  flex: none;
+  transform-origin: center;
+  animation: notePulse 2.2s ease-in-out infinite;
+}
+@keyframes notePulse{
+  0%, 100%{ transform: scale(1);    opacity: .75; }
+  50%     { transform: scale(1.15); opacity: 1;   }
+}
+@media (prefers-reduced-motion: reduce){
+  .contact-note-icon{ animation: none; }
+}

@@ -30,6 +30,8 @@ export const profile = {
 
   // Short line shown in the Contact section.
   contactLead: "Open to research collaborations, academic inquiries, or just a thoughtful conversation.",
+  // Small neutral note under the lead (with a pulsing mail icon).
+  contactNote: "Email is the best way to reach me.",
 
   // Sentence shown under the "Student Supervision" heading.
   // PLACEHOLDER — replace with your own wording.
