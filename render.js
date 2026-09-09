@@ -235,25 +235,27 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
    COURSES  ->  Teaching History timeline (desktop) + mobile cards
    ===================================================================== */
 (function renderCourses() {
-  // Desktop: cards that lead with the course name (this section is about WHAT
-  // he teaches, not when — courses recur, so dates are intentionally omitted).
-  const list = document.getElementById("courseList");
-  if (list) {
-    list.innerHTML = "";
+  // Desktop: the timeline, but leading with the course name (this section is
+  // about WHAT he teaches, not when — courses recur, so dates are omitted).
+  const timeline = document.getElementById("courseList");
+  if (timeline) {
+    timeline.innerHTML = "";
     coursesTaught.forEach((course, i) => {
-      const item = document.createElement("article");
-      item.className = "course-item fade-up";
+      const item = document.createElement("div");
+      item.className = "tl-item fade-up";
       item.dataset.delay = i * 70;
       item.innerHTML = `
-        <h3>${course.title}</h3>
-        <p>${course.description}</p>
-        <div class="course-tags">
-          <span>${course.courseLevel}</span>
-          <span>${course.field}</span>
-          <span>${course.courseFocus}</span>
+        <div class="tl-content">
+          <h3>${course.title}</h3>
+          <p>${course.description}</p>
+          <div class="tl-tags">
+            <span>${course.courseLevel}</span>
+            <span>${course.field}</span>
+            <span>${course.courseFocus}</span>
+          </div>
         </div>
       `;
-      list.appendChild(item);
+      timeline.appendChild(item);
     });
   }
 
