@@ -114,7 +114,6 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
 
   // Contact (bookend) section
   setText('.contact-lead', profile.contactLead);
-  setText('#contactAvailability', profile.availability);
   const cEmail = document.getElementById('contactEmail');
   if (cEmail) { cEmail.textContent = profile.email; cEmail.href = 'mailto:' + profile.email; }
   const cLink = document.getElementById('contactLinkedIn');

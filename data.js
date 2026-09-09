@@ -28,9 +28,8 @@ export const profile = {
   // One or two sentences under your name.
   tagline: "Exploring urban climate change governance and research cultures through interdisciplinary social science lenses.",
 
-  // Short line + availability shown in the Contact section.
+  // Short line shown in the Contact section.
   contactLead: "Open to research collaborations, academic inquiries, or just a thoughtful conversation.",
-  availability: "Currently open to new collaborations",
 
   // Sentence shown under the "Student Supervision" heading.
   // PLACEHOLDER — replace with your own wording.
