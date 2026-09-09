@@ -2337,8 +2337,7 @@ select:focus-visible{
   border-top: none;
   height: 460px;
   overflow-y: auto;
-  scroll-snap-type: y proximity;
-  padding: 170px 0;                 /* spacers so first/last can reach center (hidden by the fade) */
+  padding: 0;                       /* infinite loop supplies content above/below — no spacers needed */
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
           mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
   scrollbar-width: none;            /* Firefox — hide scrollbar */
@@ -2346,13 +2345,14 @@ select:focus-visible{
 .spotlight-scroll::-webkit-scrollbar{ width: 0; height: 0; }
 
 .spotlight-scroll .sl-item{
-  scroll-snap-align: center;
   border-bottom: none;
   opacity: calc(.26 + .74 * var(--spot, 1));
   transform: scale(calc(.9 + .1 * var(--spot, 1)));
   transform-origin: left center;
-  transition: none;                 /* driven per-frame by JS while scrolling */
   will-change: opacity, transform;
+  /* NB: no `transition` here on purpose — spotlight opacity/scale are
+     JS-driven per frame; the base .sl-item transition (background,
+     padding-left) still applies so hover keeps its ease. */
 }
 .spotlight-scroll .sl-item.is-active .sl-name{ color: #fff; }
 .spotlight-scroll .sl-item.is-active .sl-avatar{

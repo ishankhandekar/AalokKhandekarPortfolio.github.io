@@ -523,13 +523,40 @@ function legacyCopy(text) {
 })();
 
 
-/* ---- Student Supervision "spotlight wheel" ----
-   Emphasize whichever student sits nearest the vertical center of the
-   scroll container: --spot goes 1 (centered) -> 0 (edge); CSS maps it to
-   opacity + scale. The closest item also gets .is-active (gold avatar). */
+/* ---- Student Supervision "spotlight wheel" (infinite) ----
+   The list is tripled so there's always content above and below; the scroll
+   position is wrapped to stay in the middle copy, so it loops endlessly.
+   Whichever student sits nearest the vertical center is emphasized: --spot
+   goes 1 (centered) -> 0 (edge), which CSS maps to opacity + scale; the
+   closest item also gets .is-active (gold avatar). */
 (function () {
   const box = document.querySelector(".spotlight-scroll");
   if (!box) return;
+
+  let unitH = 0;
+
+  // Triple the list and park the scroll in the middle copy.
+  function setupLoop() {
+    if (box.dataset.looped === "1") return;
+    const originals = [...box.children];
+    if (!originals.length) return;
+    unitH = box.scrollHeight;          // height of one full set
+    if (unitH < 10) return;            // not laid out yet (e.g. hidden) — try later
+    originals.map(n => n.cloneNode(true)).reverse()
+      .forEach(n => box.insertBefore(n, box.firstChild));   // prepend a copy
+    originals.map(n => n.cloneNode(true))
+      .forEach(n => box.appendChild(n));                    // append a copy
+    box.scrollTop = unitH;
+    box.dataset.looped = "1";
+  }
+
+  // Keep the scroll position within the middle copy (seamless because the
+  // content repeats every unitH).
+  function wrap() {
+    if (!unitH) return;
+    if (box.scrollTop < unitH) box.scrollTop += unitH;
+    else if (box.scrollTop >= unitH * 2) box.scrollTop -= unitH;
+  }
 
   let ticking = false;
   function update() {
@@ -552,11 +579,13 @@ function legacyCopy(text) {
     items.forEach(it => it.classList.toggle("is-active", it === best));
   }
   function onScroll() {
+    wrap();
     if (!ticking) { ticking = true; requestAnimationFrame(update); }
   }
 
   box.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll);
-  window.addEventListener("load", () => requestAnimationFrame(update));
+  window.addEventListener("resize", () => requestAnimationFrame(update));
+  window.addEventListener("load", () => { setupLoop(); requestAnimationFrame(update); });
+  setupLoop();
   requestAnimationFrame(update);   // initial paint
 })();
