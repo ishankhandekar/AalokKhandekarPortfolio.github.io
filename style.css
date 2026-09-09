@@ -2299,20 +2299,44 @@ select:focus-visible{
 .railAppt-sec{ margin-top: 7px; color: #9297aa; font-size: .9rem; }
 
 /* Student Supervision intro blurb (desktop column + mobile section). */
+/* Supervision blurb: a standfirst/deck with a gold accent bar that picks up
+   from the title's gold tick (A + B). */
 .mentorColLead{
+  position: relative;
   font-family: montserrat, sans-serif;
-  color: rgba(255,255,255,.55);
+  color: rgba(255,255,255,.72);   /* brighter than body-muted so it reads as a lead */
+  font-size: 1.02rem;
+  font-weight: 400;
+  line-height: 1.65;
+  max-width: 34ch;                /* narrower -> a few short lines, not a slab */
+  margin: -0.3rem 0 1.9rem .75rem;/* pulled up tight under the title */
+  padding-left: 16px;
+}
+.mentorColLead::before{
+  content: "";
+  position: absolute;
+  left: 0; top: .3em; bottom: .3em;
+  width: 2px;
+  border-radius: 2px;
+  background: #fec157;
+}
+.m-supervision-lead{
+  position: relative;
+  font-family: montserrat, sans-serif;
+  color: rgba(255,255,255,.7);
   font-size: .92rem;
   line-height: 1.6;
   max-width: 46ch;
-  margin: 0 0 1.6rem .75rem;
+  margin: .5rem 2rem 1.3rem;
+  padding-left: 13px;
 }
-.m-supervision-lead{
-  font-family: montserrat, sans-serif;
-  color: #8b90a3;
-  font-size: .85rem;
-  line-height: 1.6;
-  margin: .4rem 2rem 1.1rem;
+.m-supervision-lead::before{
+  content: "";
+  position: absolute;
+  left: 0; top: .3em; bottom: .3em;
+  width: 2px;
+  border-radius: 2px;
+  background: #fec157;
 }
 
 
