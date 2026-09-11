@@ -228,7 +228,6 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
       </div>
       <h3 class="pub-title">${project.title}</h3>
       <div class="pub-links">
-        <a href="${project.pdf}" target="_blank">PDF ${EXT_ICON}</a>
         <a href="${project.doi}" target="_blank">DOI ${EXT_ICON}</a>
       </div>
     `;

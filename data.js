@@ -144,7 +144,6 @@ export const projects = [
     location: "New Delhi, India",     // where it was presented / published
     date: "2023",                     // year (or full date)
     title: "Community Health Interventions in Delhi",
-    pdf: "#",                         // link to the PDF ("#" if none yet)
     doi: "#"                          // link to the DOI ("#" if none yet)
   },
   {
@@ -152,7 +151,6 @@ export const projects = [
     location: "Journal Article",
     date: "2022",
     title: "Infrastructures of Air: Governing Pollution in Indian Cities",
-    pdf: "#",
     doi: "#"
   },
   {
@@ -160,7 +158,6 @@ export const projects = [
     location: "Prague, Czech Republic",
     date: "2020",
     title: "Collaborative Platforms for Comparative STS Research",
-    pdf: "#",
     doi: "#"
   },
   {
@@ -168,7 +165,6 @@ export const projects = [
     location: "Journal Article",
     date: "2023",
     title: "Governing Heat: Municipal Responses to Urban Warming in India",
-    pdf: "#",
     doi: "#"
   },
   {
@@ -176,7 +172,6 @@ export const projects = [
     location: "Journal Article",
     date: "2021",
     title: "Expertise & Accountability in Air-Quality Monitoring",
-    pdf: "#",
     doi: "#"
   },
   {
@@ -184,7 +179,6 @@ export const projects = [
     location: "Amsterdam, Netherlands",
     date: "2022",
     title: "Comparative Infrastructures of Urban Climate Data",
-    pdf: "#",
     doi: "#"
   },
   {
@@ -192,7 +186,6 @@ export const projects = [
     location: "Journal Article",
     date: "2019",
     title: "Participatory Planning & the Politics of Sustainable Cities",
-    pdf: "#",
     doi: "#"
   }
 ];
