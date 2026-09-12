@@ -59,9 +59,9 @@ export const profile = {
 
   // Footer "Education" links (his degrees / programs).
   educationLinks: [
-    { label: "STS at RPI",            url: "https://hass.rpi.edu/science-technology-studies" },
-    { label: "M.S., Penn State",      url: "https://www.eecs.psu.edu/" },
-    { label: "B.E., Univ. of Mumbai", url: "https://mu.ac.in/" }
+    { label: "STS at RPI",         url: "https://hass.rpi.edu/science-technology-studies" },
+    { label: "EE at Penn State",   url: "https://www.eecs.psu.edu/" },
+    { label: "EE at Mumbai Univ.", url: "https://mu.ac.in/" }
   ],
 
   // Institutional affiliations shown in the footer.
