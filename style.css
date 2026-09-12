@@ -1079,8 +1079,9 @@ margin: 0.2rem 0.2rem;
 .pub-title{
   font-family: montserrat;
   color: white;
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
 }
 .more {
   display: none;
@@ -2199,7 +2200,7 @@ justify-content: space-between;
   #project-cards .pub-meta{ flex-direction:row; align-items:center; gap:10px; margin-bottom:11px; }
   #project-cards .venue{ font-family:'Barlow Condensed',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.06em; font-size:.72rem; color:var(--gold); border:1px solid rgba(var(--c-gold),.32); padding:2px 8px; border-radius:5px; }
   #project-cards .location, #project-cards .date{ font-size:.75rem; color:var(--muted-2); }
-  #project-cards .pub-title{ font-size:1.02rem; margin-bottom:12px; }
+  #project-cards .pub-title{ font-size:.9rem; margin-bottom:12px; }
 }
 
 
