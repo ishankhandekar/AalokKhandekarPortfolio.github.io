@@ -110,25 +110,17 @@ export const education = [
 export const topicsOfResearch = [
   {
     // Title: the name of a research area, e.g. "Urban Governance"
-    title: "Urban Governance & Climate Change",
+    title: "Urban Heat: Adaptation and Governance",
     // Description: written for a general visitor to understand.
-    description: "Cities are on the frontlines of the climate crisis — where the impacts are felt most acutely, but also where some of the most innovative solutions are emerging. This research examines how local governments respond to climate-related risks, how planning can become more equitable and sustainable, and how power, policy, and infrastructure intersect in shaping urban futures."
+    description: "This research examines how some population groups are disproportionately vulnerable to the impacts of rising temperatures, owing to both increased exposure and diminished adaptive capacities. Our research has focused on the particular socio-material contexts of informal settlements in Hyderabad, highlighting highly gendered patterns of exposure and adaptation. The research combines studies of local weather conditions, built environments, and patterns of inhabitation. The research also examines disconnects between existing governance approaches and lived experiences, and seeks to develop pathways for enabling community-based/led heat action. See <a href=\"https://heatingcities.in\" target=\"_blank\" rel=\"noopener noreferrer\">heatingcities.in</a> for further details."
   },
   {
-    title: "Transnational Knowledge & Development",
-    description: "How expertise, technologies, and development models travel across borders — and what happens when they land in new social and political contexts. This work follows the movement of knowledge between the global North and South and its consequences for local communities."
+    title: "Southern Urbanism",
+    description: "An ongoing focus on the constitution and rearticulation of the southern city from the vantage point of Hyderabad. Student projects have examined a wide range of domains, including digital platforms, health, environment, and vernacular built forms."
   },
   {
-    title: "The Politics of Air Pollution",
-    description: "Air pollution is as much a political problem as a technical one. This research studies how pollution is measured, contested, and governed, and how questions of data, accountability, and environmental justice shape the public response."
-  },
-  {
-    title: "Collaborative STS Research Platforms",
-    description: "Building shared digital infrastructures and methods that let scholars collaborate across institutions and disciplines — advancing open, cumulative, and collectively-built social science research."
-  },
-  {
-    title: "Ethics, Expertise & Inclusion in Science",
-    description: "Who gets to count as an expert, and whose knowledge is left out? This research examines the ethics of expertise and how scientific institutions can become more inclusive and accountable to the publics they serve."
+    title: "Cultures of Scientific Knowledge-Production",
+    description: "A focus on understanding the forces that shape scientific knowledge-production in contemporary academia. We also work to develop community norms, practices, and digital infrastructures to cultivate and sustain spaces for transnational collaboration."
   }
 ];
 
