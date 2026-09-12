@@ -220,6 +220,12 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
     const card = document.createElement("div");
     card.className = "pub-card fade-up";
     card.dataset.delay = i * 70;
+    // Bold his own name in the author list (standard on an academic's page).
+    const authors = (project.authors || "").replace(/Aalok Khandekar/g, "<strong>Aalok Khandekar</strong>");
+    // Only show a DOI link when there's an actual DOI.
+    const doiLink = (project.doi && project.doi !== "#")
+      ? `<div class="pub-links"><a href="${project.doi}" target="_blank" rel="noopener noreferrer">DOI ${EXT_ICON}</a></div>`
+      : "";
     card.innerHTML = `
       <div class="pub-meta">
         <small class="venue">${project.venue}</small>
@@ -227,9 +233,8 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
         <small class="date">${project.date}</small>
       </div>
       <h3 class="pub-title">${project.title}</h3>
-      <div class="pub-links">
-        <a href="${project.doi}" target="_blank">DOI ${EXT_ICON}</a>
-      </div>
+      ${authors ? `<p class="pub-authors">${authors}</p>` : ""}
+      ${doiLink}
     `;
     container.appendChild(card);
   });

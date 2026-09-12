@@ -2516,3 +2516,14 @@ select:focus-visible{
     margin-inline: auto;
   }
 }
+
+
+/* Publication author line (his own name is bolded in render.js). */
+.pub-authors{
+  font-family: montserrat, sans-serif;
+  font-size: .8rem;
+  line-height: 1.55;
+  color: rgba(var(--c-white), .5);
+  margin: .55rem 0 1rem;
+}
+.pub-authors strong{ font-weight: 600; color: rgba(var(--c-white), .72); }

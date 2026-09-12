@@ -134,59 +134,97 @@ export const topicsOfResearch = [
 
 
 // ---------------------------------------------------------------------
-//  4) PROJECTS & PUBLICATIONS  —  your work.
-//     Drives the "Ongoing Projects & Work" grid.
-//     (Sample entries below — replace with your real projects.)
+//  4) PUBLICATIONS  —  published work (newest first).
+//     Drives the "Recent Publications" grid. Each entry:
+//       authors  — full author list ("Aalok Khandekar" is auto-bolded)
+//       venue    — journal / book / series name
+//       location — type ("Journal Article", "Book Chapter · Springer", …)
+//       date     — year ("" if not yet assigned)
+//       title    — the work's title
+//       doi      — full DOI URL ("" hides the DOI link)
+//     The FIRST entry renders in the gold "featured" style — reorder to
+//     feature a different paper.
 // ---------------------------------------------------------------------
 export const projects = [
   {
-    venue: "ACM DEV",                 // conference / journal / event
-    location: "New Delhi, India",     // where it was presented / published
-    date: "2023",                     // year (or full date)
-    title: "Community Health Interventions in Delhi",
-    doi: "#"                          // link to the DOI ("#" if none yet)
-  },
-  {
-    venue: "Science, Technology & Human Values",
+    authors: "Krithika Sridharan, Aalok Khandekar, and Anant Maringanti",
+    venue: "Open House International",
     location: "Journal Article",
-    date: "2022",
-    title: "Infrastructures of Air: Governing Pollution in Indian Cities",
-    doi: "#"
+    date: "2026",
+    title: "Transitions in vernacular built-environments: socio-technical perspectives on climate-responsive sustainability in Hyderabad, India",
+    doi: "https://doi.org/10.1108/OHI-04-2026-0148"
   },
   {
-    venue: "4S / EASST",
-    location: "Prague, Czech Republic",
-    date: "2020",
-    title: "Collaborative Platforms for Comparative STS Research",
-    doi: "#"
-  },
-  {
-    venue: "Environmental Science & Policy",
+    authors: "Anushree Gupta and Aalok Khandekar",
+    venue: "Environment and Planning D: Society and Space",
     location: "Journal Article",
-    date: "2023",
-    title: "Governing Heat: Municipal Responses to Urban Warming in India",
-    doi: "#"
+    date: "2025",
+    title: "Platformization in the southern city: Entrepreneurial volunteering and the suturing of collective life in Hyderabad",
+    doi: "https://doi.org/10.1177/02637758251389048"
   },
   {
-    venue: "Social Studies of Science",
+    authors: "Krithika Sridharan and Aalok Khandekar",
+    venue: "Responsible & Resilient Design for Society (ICoRD 2025)",
+    location: "Book Chapter · Springer",
+    date: "2025",
+    title: "Climate Responsiveness and Built Heritage of Hyderabad City",
+    doi: "https://doi.org/10.1007/978-981-96-7316-2_5"
+  },
+  {
+    authors: "Sudhir Raj Thout and Aalok Khandekar",
+    venue: "Leadership in Health Services",
     location: "Journal Article",
-    date: "2021",
-    title: "Expertise & Accountability in Air-Quality Monitoring",
-    doi: "#"
+    date: "2025",
+    title: "ASHAs (Accredited Social Health Activist) leadership role in delivering diabetic care services to urban poor during COVID-19 in Hyderabad, India",
+    doi: "https://doi.org/10.1108/LHS-01-2025-0005"
   },
   {
-    venue: "EASST Conference",
-    location: "Amsterdam, Netherlands",
-    date: "2022",
-    title: "Comparative Infrastructures of Urban Climate Data",
-    doi: "#"
+    authors: "Angela Okune, Duygu Kaşdoğan, Aalok Khandekar, Maka Suarez, and Kim Fortun",
+    venue: "Decentralizing Knowledges",
+    location: "Book Chapter · Duke Univ. Press",
+    date: "",
+    title: "Re-Mooring Academia: Postcolonial and Infrastructural Challenges",
+    doi: ""
   },
   {
+    authors: "Aalok Khandekar, Jamie Cross, and Anant Maringanti",
     venue: "Urban Studies",
     location: "Journal Article",
-    date: "2019",
-    title: "Participatory Planning & the Politics of Sustainable Cities",
-    doi: "#"
+    date: "2024",
+    title: "Scale and modularity in thermal governance: The replication of India's heat action plans",
+    doi: "https://doi.org/10.1177/00420980231195193"
+  },
+  {
+    authors: "Mohammed Raqib and Aalok Khandekar",
+    venue: "Science, Technology & Society",
+    location: "Journal Article",
+    date: "2024",
+    title: "Innovative Pathways to Social Transformation: Disruptive Maintenance Through Social Impact Start-ups in Kerala",
+    doi: "https://doi.org/10.1177/09717218241246358"
+  },
+  {
+    authors: "N. Sai Venkata Sarath Chandra, Aalok Khandekar, and Anant Maringanti",
+    venue: "The Journal of Climate Change and Health",
+    location: "Journal Article",
+    date: "2023",
+    title: "Towards a Climate-Health Approach in Indian Healthcare: Perspectives of Specialist Doctors on Health Impacts of Extreme Heat in Hyderabad",
+    doi: "https://doi.org/10.1016/j.joclim.2023.100269"
+  },
+  {
+    authors: "Phanisri Soumya Chavali, Aalok Khandekar, and Anant Maringanti",
+    venue: "Regional Studies Policy Impact Books",
+    location: "Book Chapter",
+    date: "2023",
+    title: "Social Security for Urban Informal Workers: The Case of Hyderabad, India",
+    doi: "https://doi.org/10.1080/2578711X.2023.2196213"
+  },
+  {
+    authors: "Aalok Khandekar, Brandon Costelloe-Kuehn, Lindsay Poirier, Alli Morgan, Alison Kenner, Kim Fortun, Mike Fortun, and the PECE Design Team",
+    venue: "Science & Technology Studies",
+    location: "Journal Article",
+    date: "",
+    title: "Moving Ethnography: Infrastructuring Switchbacks and Doubletakes in Experimental Collaborative Methods",
+    doi: "https://doi.org/10.23987/sts.89782"
   }
 ];
 
