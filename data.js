@@ -53,6 +53,8 @@ export const profile = {
   importantLinks: [
     { label: "Curriculum Vitae", url: "assets/Aalok_Khandekar_CV.pdf" },
     { label: "STS at RPI",       url: "https://hass.rpi.edu/science-technology-studies" },
+    { label: "M.S., Penn State", url: "https://www.eecs.psu.edu/" },
+    { label: "B.E., Univ. of Mumbai", url: "https://mu.ac.in/" },
     { label: "Heating Cities",   url: "https://heatingcities.in" },
     { label: "STS India",        url: "https://stsin.org" },
     { label: "4S",               url: "https://4sonline.org" }
