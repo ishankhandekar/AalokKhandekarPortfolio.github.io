@@ -11,8 +11,8 @@
 //     Drives the hero, the contact section, and the footer.
 // ---------------------------------------------------------------------
 export const profile = {
-  honorific: "Dr.",                 // shown in accent color on mobile
-  name: "Aalok Khandekar",          // your name (without the honorific)
+  credential: "Ph.D.",              // shown after the name (accented on mobile)
+  name: "Aalok Khandekar",          // your name (without the credential)
 
   kicker: "Science, Technology & Society",   // small label above your name
   role: "Associate Professor & Head",        // primary title
@@ -26,7 +26,7 @@ export const profile = {
   location: "IIT Hyderabad, India",          // "Based at" line in the hero
 
   // One or two sentences under your name.
-  tagline: "Exploring urban climate change governance and research cultures through interdisciplinary social science lenses.",
+  tagline: "Exploring urban climate change governance and transnational research cultures through interdisciplinary social science lenses.",
 
   // Short line shown in the Contact section.
   contactLead: "Open to research collaborations, academic inquiries, or just a thoughtful conversation.",

@@ -51,8 +51,8 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
    ===================================================================== */
 (function renderProfile() {
   // Hero identity
-  setText('#desktopHeading', `${profile.honorific} ${profile.name}`);
-  setHTML('#mobileHeading', `<span style="color:#ffc25d;">${profile.honorific}</span> ${profile.name}`);
+  setText('#desktopHeading', `${profile.name}, ${profile.credential}`);
+  setHTML('#mobileHeading', `${profile.name}, <span style="color:#ffc25d;">${profile.credential}</span>`);
   setText('.heroKicker', profile.kicker);
   setText('#intro .heroText > p', profile.tagline);
 
