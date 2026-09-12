@@ -40,7 +40,7 @@ export const profile = {
   supervisionHint: "Scroll the list to see who I've mentored",
 
   // The pills shown under "Focus" in the hero.
-  focusTags: ["Urban Studies", "Climate Adaptation", "STS", "Infrastructure Studies", "Digital Studies", "Environmental Studies"],
+  focusTags: ["Urban Studies", "Climate Adaptation", "STS", "Infrastructure Studies", "Digital Studies", "Environmental Studies", "Experimental Ethnography"],
 
   // Links & contact details (used in hero button, contact + footer).
   cvUrl: "assets/Aalok_Khandekar_CV.pdf",
