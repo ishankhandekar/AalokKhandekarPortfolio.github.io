@@ -2464,6 +2464,7 @@ select:focus-visible{
 
 /* Give the footer link lists room to breathe (desktop footer). */
 .left-footer-column .js-important-links,
+.left-footer-column .js-education-links,
 .left-footer-column .js-affiliations{
   display: flex;
   flex-direction: column;
@@ -2507,7 +2508,8 @@ select:focus-visible{
 
 /* Mobile footer: the rendered links live in a <div>, which was picking up
    the generic `.mobileFooter div { margin-left: 2rem }` indent. Cancel it. */
-.mobileFooter .js-important-links{
+.mobileFooter .js-important-links,
+.mobileFooter .js-education-links{
   margin-left: 0;
   padding-top: 0;
   margin-bottom: 0;

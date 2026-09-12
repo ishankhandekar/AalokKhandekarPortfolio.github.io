@@ -103,6 +103,13 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
       .join('');
   });
 
+  // Footer "Education" links.
+  document.querySelectorAll('.js-education-links').forEach(n => {
+    n.innerHTML = (profile.educationLinks || [])
+      .map(l => `<a class="changeColorOnHover" href="${l.url}" target="_blank" rel="noopener noreferrer">${l.label}</a>`)
+      .join('');
+  });
+
   // Student Supervision blurb + a highlighted scroll cue (both copies; the
   // cue is hidden on mobile via CSS since the mobile list doesn't spotlight-scroll).
   document.querySelectorAll('.js-supervision-lead').forEach(n => {
