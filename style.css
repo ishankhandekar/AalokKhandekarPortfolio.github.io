@@ -1668,8 +1668,9 @@ justify-content: space-between;
     flex-direction: column;
     gap: clamp(28px, 2vw, 46px);
     flex: 0 0 auto;
-    /* right rail widens on wider screens (floor ~= current 300px at ~1440) */
-    width: clamp(220px, 21vw, 480px);
+    /* right rail widens on wider screens (floor ~= current 300px at ~1440);
+       higher vw term gives laptops noticeably more room, still capped on ultra-wide */
+    width: clamp(240px, 25vw, 480px);
     border-left: 1px solid rgba(var(--c-white),.12);
     padding-left: clamp(28px, 2.6vw, 64px);
     position: relative;
