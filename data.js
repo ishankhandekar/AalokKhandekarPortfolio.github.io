@@ -35,7 +35,7 @@ export const profile = {
 
   // Sentence shown under the "Student Supervision" heading.
   // PLACEHOLDER — replace with your own wording.
-  supervisionLead: "I supervise students working across society, technology, and the environment — from undergraduate field projects to doctoral research — and welcome inquiries from those drawn to interdisciplinary, socially engaged work.",
+  supervisionLead: "I supervise students working across a range of issues in society, technology, and society, broadly interrogating the intersections between digital, environmental, and urban domains. I welcome inquiries from students at all levels drawn to interdisciplinary, socially engaged work broadly focusing on these topics.",
   // Highlighted scroll cue appended after the sentence (desktop only).
   supervisionHint: "Scroll the list to see who I've mentored",
 
@@ -282,33 +282,45 @@ export const coursesTaught = [
 // ---------------------------------------------------------------------
 export const notableStudents = [
   {
-    name: "Ananya Rajan",
-    role: "B.Tech Student, Liberal Arts",
-    contribution: "Field research on water-access inequality in semi-urban Telangana, focusing on STS approaches to infrastructure.",
-    status: "Interning at the Centre for Science & Environment, New Delhi"
+    name: "Mohammed Raqib",
+    role: "PhD · Sociology/Anthropology",
+    contribution: "Social innovation in Kerala.",
+    status: "Graduated 2024"
   },
   {
-    name: "Ravi Menon",
-    role: "M.A. Student, Development Studies",
-    contribution: "Co-authored a working paper on participatory climate governance in mid-sized Indian cities.",
-    status: "Pursuing a PhD at the University of Edinburgh"
+    name: "Sudhir Raj Thout",
+    role: "PhD Candidate · Sociology/Anthropology",
+    contribution: "Lived experiences of Type-2 diabetes among Hyderabad's urban poor.",
+    status: ""
   },
   {
-    name: "Sneha Kulkarni",
-    role: "PhD Candidate, STS",
-    contribution: "Dissertation on data infrastructures in municipal climate planning.",
-    status: "Ongoing"
+    name: "Krithika Sridharan",
+    role: "PhD Candidate · Climate Change",
+    contribution: "Climate responsiveness of vernacular built environments in Hyderabad.",
+    status: ""
   },
-
-  // ===== PROTOTYPE DUMMIES — delete this block when adding real students =====
-  { name: "Meera Iyer",     role: "M.A. Student, Sociology",        contribution: "Ethnography of e-waste labor in peri-urban recycling markets.",              status: "Ongoing" },
-  { name: "Arjun Nair",     role: "B.Tech Student, Liberal Arts",   contribution: "Mapping citizen air-quality sensing networks across Hyderabad.",              status: "Interning at CSTEP, Bengaluru" },
-  { name: "Priya Deshmukh", role: "PhD Candidate, STS",             contribution: "Infrastructures of urban flood forecasting and warning systems.",             status: "Ongoing" },
-  { name: "Karan Reddy",    role: "M.A. Student, Development",       contribution: "Political economy of rooftop solar adoption in Telangana.",                   status: "Ongoing" },
-  { name: "Fatima Sheikh",  role: "B.Tech Student, Liberal Arts",   contribution: "Discourse analysis of climate migration in regional media.",                  status: "Graduated 2024" },
-  { name: "Rohan Pillai",   role: "PhD Candidate, STS",             contribution: "Standards and metrics in national air-quality governance.",                   status: "Ongoing" },
-  { name: "Ananya Bose",    role: "M.A. Student, Anthropology",     contribution: "Everyday water infrastructures in informal settlements.",                     status: "Ongoing" },
-  { name: "Vikram Joshi",   role: "B.Tech Student, Liberal Arts",   contribution: "Open-data platforms for participatory urban planning.",                       status: "Interning at Janaagraha" },
-  { name: "Leela Krishnan", role: "PhD Candidate, STS",             contribution: "Comparative study of heat-action plans across Indian cities.",                status: "Ongoing" }
-  // ===== END DUMMIES =====
+  {
+    name: "Anushree Gupta",
+    role: "PhD Candidate · Sociology/Anthropology",
+    contribution: "Digital platforms in/and the southern city.",
+    status: ""
+  },
+  {
+    name: "Subhadip Datta",
+    role: "PhD Candidate · Climate Change",
+    contribution: "The potential of urban lentic systems for climate resilience.",
+    status: ""
+  },
+  {
+    name: "Subhranil Chakraborty",
+    role: "PhD Scholar · Sociology/Anthropology",
+    contribution: "Shrimp cultivation in the Bengal delta region.",
+    status: ""
+  },
+  {
+    name: "Arisha Farooquee",
+    role: "PhD Scholar · Sociology/Anthropology",
+    contribution: "Repair, livelihoods, and embodied knowledge among urban automobile mechanics.",
+    status: ""
+  }
 ];
