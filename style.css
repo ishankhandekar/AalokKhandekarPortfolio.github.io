@@ -2536,7 +2536,7 @@ select:focus-visible{
   align-items: center;
   gap: 9px;
   width: fit-content;
-  margin: .25rem auto 3rem;
+  margin: .25rem 0 3rem 1.5rem;   /* align with the card grid's left edge */
   padding: 11px 24px;
   background: transparent;
   border: 1px solid rgba(var(--c-gold), .45);
