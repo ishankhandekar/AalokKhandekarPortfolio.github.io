@@ -628,8 +628,11 @@ function legacyCopy(text) {
     // show all momentarily so offsetTop (and the true row count) is measurable
     cards.forEach(c => c.style.removeProperty("display"));
     const perRow = firstRowCount() || total;
+    // On mobile the grid stacks (one card per row), so keep a floor of 3.
+    const isMobile = window.matchMedia("(max-width: 1200px)").matches;
+    const keep = isMobile ? Math.max(perRow, 3) : perRow;
 
-    if (total <= perRow) { btn.hidden = true; return; }   // everything already fits
+    if (total <= keep) { btn.hidden = true; return; }      // everything already fits
     btn.hidden = false;
 
     if (expanded) {
@@ -638,8 +641,8 @@ function legacyCopy(text) {
       btn.classList.add("is-open");
       btn.setAttribute("aria-expanded", "true");
     } else {
-      cards.forEach((c, i) => { if (i >= perRow) c.style.display = "none"; });
-      btn.querySelector(".show-more-label").textContent = "Show " + (total - perRow) + " more";
+      cards.forEach((c, i) => { if (i >= keep) c.style.display = "none"; });
+      btn.querySelector(".show-more-label").textContent = "Show " + (total - keep) + " more";
       btn.classList.remove("is-open");
       btn.setAttribute("aria-expanded", "false");
     }
