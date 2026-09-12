@@ -2090,10 +2090,24 @@ justify-content: space-between;
   transition: transform .55s cubic-bezier(.16,1,.3,1) .08s;
 }
 .researchDropdownContent.show{
-  max-height: 320px; opacity: 1; transform: none; filter: none;
+  max-height: 460px; opacity: 1; transform: none; filter: none;
   padding: 4px 6px 20px 16px; max-width: 52ch;
 }
 .researchDropdownContent.show::before{ transform: scaleY(1); }
+
+/* Inline links inside research descriptions (desktop + mobile) */
+.researchDropdownContent a,
+.m-rrow-d p a{
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(var(--c-gold), .4);
+  transition: color .2s ease, border-color .2s ease;
+}
+.researchDropdownContent a:hover,
+.m-rrow-d p a:hover{
+  color: var(--gold-bright);
+  border-bottom-color: var(--gold-bright);
+}
 
 
 /* Hamburger + mobile menu are mobile-only; hidden on desktop. */
@@ -2176,7 +2190,7 @@ justify-content: space-between;
   .m-plus{ color:var(--gold); flex:none; transition:transform .45s cubic-bezier(.34,1.56,.64,1); }
   .m-rrow.open .m-plus{ transform:rotate(135deg); }
   .m-rrow-d{ max-height:0; overflow:hidden; opacity:0; padding:0 2px; transition:max-height .5s cubic-bezier(.16,1,.3,1), opacity .35s ease, padding .5s; }
-  .m-rrow.open .m-rrow-d{ max-height:260px; opacity:1; padding:0 2px 16px; }
+  .m-rrow.open .m-rrow-d{ max-height:520px; opacity:1; padding:0 2px 16px; }
   .m-rrow-d p{ font-family:montserrat; font-size:.85rem; line-height:1.55; color:var(--muted-2); }
 
   /* ---- Courses: compact tag cards ---- */
