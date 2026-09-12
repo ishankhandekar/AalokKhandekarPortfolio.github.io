@@ -2528,3 +2528,31 @@ select:focus-visible{
   margin: .55rem 0 1rem;
 }
 .pub-authors strong{ font-weight: 600; color: rgba(var(--c-white), .72); }
+
+
+/* Publications "Show more / Show less" toggle. */
+.show-more-btn{
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: fit-content;
+  margin: .25rem auto 3rem;
+  padding: 11px 24px;
+  background: transparent;
+  border: 1px solid rgba(var(--c-gold), .45);
+  border-radius: 999px;
+  color: var(--gold);
+  font-family: montserrat, sans-serif;
+  font-weight: 600;
+  font-size: .88rem;
+  letter-spacing: .02em;
+  cursor: pointer;
+  transition: background .25s ease, border-color .25s ease, transform .15s ease;
+}
+.show-more-btn:hover{
+  background: rgba(var(--c-gold), .1);
+  border-color: var(--gold);
+}
+.show-more-btn:active{ transform: translateY(1px); }
+.show-more-chev{ transition: transform .3s ease; }
+.show-more-btn.is-open .show-more-chev{ transform: rotate(180deg); }

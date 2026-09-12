@@ -589,3 +589,66 @@ function legacyCopy(text) {
   setupLoop();
   requestAnimationFrame(update);   // initial paint
 })();
+
+
+/* ---- Publications: show only the first row, reveal the rest via "Show more".
+   The number kept = however many cards fill the first row at the current
+   width (grouped by matching offsetTop), recomputed on resize. ---- */
+(function () {
+  const grid = document.getElementById("project-cards");
+  if (!grid) return;
+
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "show-more-btn";
+  btn.setAttribute("aria-expanded", "false");
+  btn.innerHTML =
+    '<span class="show-more-label">Show more</span>' +
+    '<svg class="show-more-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+    'stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+  grid.after(btn);
+
+  let expanded = false;
+
+  function firstRowCount() {
+    const cards = grid.children;
+    if (!cards.length) return 0;
+    const top0 = cards[0].offsetTop;
+    let n = 0;
+    for (const c of cards) {
+      if (Math.abs(c.offsetTop - top0) < 2) n++;
+      else break;
+    }
+    return n;
+  }
+
+  function apply() {
+    const cards = [...grid.children];
+    const total = cards.length;
+    // show all momentarily so offsetTop (and the true row count) is measurable
+    cards.forEach(c => c.style.removeProperty("display"));
+    const perRow = firstRowCount() || total;
+
+    if (total <= perRow) { btn.hidden = true; return; }   // everything already fits
+    btn.hidden = false;
+
+    if (expanded) {
+      cards.forEach(c => c.classList.add("visible"));      // reveal the rest immediately
+      btn.querySelector(".show-more-label").textContent = "Show less";
+      btn.classList.add("is-open");
+      btn.setAttribute("aria-expanded", "true");
+    } else {
+      cards.forEach((c, i) => { if (i >= perRow) c.style.display = "none"; });
+      btn.querySelector(".show-more-label").textContent = "Show " + (total - perRow) + " more";
+      btn.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+    }
+  }
+
+  btn.addEventListener("click", () => { expanded = !expanded; apply(); });
+
+  let raf = 0;
+  window.addEventListener("resize", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(apply); });
+  window.addEventListener("load", apply);
+  apply();
+})();
