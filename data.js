@@ -237,32 +237,39 @@ export const projects = [
 // ---------------------------------------------------------------------
 export const coursesTaught = [
   {
-    title: "Qualitative Research Methods",
-    description: "Designing, conducting, and analyzing qualitative studies in social research.",
+    title: "Climate Governance",
+    description: "Issues in the governance of climate change in India and globally.",
     courseLevel: "Graduate",     // Graduate / Undergraduate ...
-    field: "STS",                // discipline
-    courseFocus: "Seminar Focused"   // format / emphasis
+    field: "Climate Change",     // discipline
+    courseFocus: "Lecture and Discussion"   // format / emphasis
   },
   {
-    title: "Infrastructure & Society",
-    description: "How infrastructures shape, and are shaped by, urban social and political life.",
+    title: "Infrastructure Studies",
+    description: "Mutual shaping of infrastructures and societies.",
+    courseLevel: "Graduate",
+    field: "STS",
+    courseFocus: "Seminar"
+  },
+  {
+    title: "Science, Technology, and Society",
+    description: "Mutual shaping of science, technology, and society.",
     courseLevel: "Undergraduate",
     field: "STS",
-    courseFocus: "Field-based"
+    courseFocus: "Lecture"
   },
   {
-    title: "Science, Technology & the City",
-    description: "Interdisciplinary approaches to knowledge, expertise, and urban governance.",
+    title: "Reading and Writing in Digital Worlds",
+    description: "Transformations in research and writing in the context of digital mediation.",
     courseLevel: "Graduate",
-    field: "STS",
-    courseFocus: "Seminar Focused"
+    field: "Humanities & Social Sciences",
+    courseFocus: "Seminar"
   },
   {
-    title: "Environmental Justice & Policy",
-    description: "Equity in environmental decision-making, and the politics of climate adaptation.",
+    title: "Contemporary India",
+    description: "Survey of issues in Indian development.",
     courseLevel: "Graduate",
-    field: "STS",
-    courseFocus: "Discussion Based"
+    field: "Development Studies",
+    courseFocus: "Lecture and Discussion"
   }
 ];
 
