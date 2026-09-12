@@ -1964,6 +1964,18 @@ justify-content: space-between;
 .tl-content{ transition: transform .25s ease; }
 .tl-item:hover .tl-content{ transform: translateX(3px); }
 
+/* Education timeline entries that link out to the institution */
+.tl-link{
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+.tl-link h3,
+.tl-link .tl-format{ transition: color .25s ease; }
+.tl-link:hover h3{ color: var(--gold); }
+.tl-link:hover .tl-format{ color: rgba(var(--c-gold), .85); }
+
 /* ---- Notable Students compact list ---- */
 .student-list{ border-top: 1px solid rgba(var(--c-white),.12); }
 .sl-item{

@@ -147,16 +147,21 @@ const EXT_ICON = `<span class="material-symbols-outlined"><svg xmlns="http://www
   // Desktop: a mini-timeline (mirrors the Teaching History timeline)
   const tl = document.getElementById('eduTimeline');
   if (tl) {
-    tl.innerHTML = education.map((e, i) => `
-      <div class="tl-item fade-up" data-delay="${i * 70}">
-        <div class="tl-content">
+    tl.innerHTML = education.map((e, i) => {
+      const inner = `
           <div class="tl-head">
             <span class="tl-year">${e.year}</span>
             <span class="tl-format">${e.institution}</span>
           </div>
-          <h3>${e.credential} <span class="edu-field">— ${e.field}</span></h3>
-        </div>
-      </div>`).join('');
+          <h3>${e.credential} <span class="edu-field">— ${e.field}</span></h3>`;
+      const content = e.url
+        ? `<a class="tl-content tl-link" href="${e.url}" target="_blank" rel="noopener noreferrer">${inner}</a>`
+        : `<div class="tl-content">${inner}</div>`;
+      return `
+      <div class="tl-item fade-up" data-delay="${i * 70}">
+        ${content}
+      </div>`;
+    }).join('');
   }
 
   // Mobile: a light hairline list with gold years

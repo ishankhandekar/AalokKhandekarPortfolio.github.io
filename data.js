@@ -85,6 +85,8 @@ export const education = [
     field: "Science & Technology Studies",
     institution: "Rensselaer Polytechnic Institute",
     year: "2010",
+    // url: makes the desktop timeline entry a clickable link.
+    url: "https://hass.rpi.edu/science-technology-studies",
     // Optional links shown on the mobile cards. Leave [] for none.
     links: [
       { label: "STS at RPI", url: "https://hass.rpi.edu/science-technology-studies" }
@@ -95,6 +97,7 @@ export const education = [
     field: "Electrical Engineering",
     institution: "Pennsylvania State University",
     year: "2004",
+    url: "https://www.eecs.psu.edu/",
     links: []
   },
   {
@@ -102,6 +105,7 @@ export const education = [
     field: "Electrical Engineering",
     institution: "Mumbai University",
     year: "2002",
+    url: "https://mu.ac.in/",
     links: []
   }
 ];
